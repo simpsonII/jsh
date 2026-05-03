@@ -1,0 +1,345 @@
+import React from 'react';
+import { 
+  AlertTriangle, 
+  Eye, 
+  MapPin, 
+  Clock, 
+  Brain, 
+  ShieldCheck, 
+  ArrowDown,
+  Navigation,
+  Activity,
+  Home,
+  CheckCircle2,
+  Info
+} from 'lucide-react';
+
+const App = () => {
+  return (
+    <div className="min-h-screen bg-gray-50 text-gray-900 font-sans selection:bg-yellow-300 selection:text-black">
+      {/* Navigation */}
+      <nav className="fixed w-full bg-white/90 backdrop-blur-md border-b border-gray-200 z-50">
+        <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+          <span className="font-bold text-xl tracking-tighter">UX Portfolio</span>
+          <div className="hidden md:flex space-x-8 text-sm font-medium text-gray-500">
+            <a href="#problem" className="hover:text-black transition-colors">Problem</a>
+            <a href="#research" className="hover:text-black transition-colors">Research</a>
+            <a href="#solution" className="hover:text-black transition-colors">Solution</a>
+            <a href="#impact" className="hover:text-black transition-colors">Impact</a>
+          </div>
+        </div>
+      </nav>
+
+      {/* Hero Section */}
+      <section className="pt-32 pb-20 px-6 bg-gradient-to-br from-gray-900 to-gray-800 text-white relative overflow-hidden">
+        <div className="absolute top-0 right-0 opacity-10 pointer-events-none transform translate-x-1/3 -translate-y-1/4">
+          <svg width="600" height="600" viewBox="0 0 100 100" className="animate-[spin_60s_linear_infinite]">
+             <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" strokeWidth="2" strokeDasharray="10 5" />
+             <circle cx="50" cy="50" r="35" fill="none" stroke="currentColor" strokeWidth="4" />
+          </svg>
+        </div>
+        
+        <div className="max-w-6xl mx-auto relative z-10">
+          <div className="inline-block px-4 py-1.5 mb-6 rounded-full bg-yellow-400 text-black text-sm font-bold tracking-wider">
+            PUBLIC UX DESIGN
+          </div>
+          <h1 className="text-5xl md:text-7xl font-extrabold leading-tight mb-6">
+            재난 대비 지면 안내 시스템<br />
+            <span className="text-yellow-400">세이프티 맨홀</span>
+          </h1>
+          <p className="text-xl md:text-2xl text-gray-400 max-w-2xl font-light leading-relaxed mb-10">
+            "우리는 평소에 맨홀을 밟고 지나가지만, 그것이 우리의 생명을 구할 수 있다고 생각하는 사람은 아무도 없습니다."
+          </p>
+        </div>
+      </section>
+
+      {/* Project Overview */}
+      <section className="py-20 px-6 bg-white border-b border-gray-100">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
+          <div>
+            <h3 className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-4">Target Place</h3>
+            <p className="text-lg font-medium text-gray-800">도심 내 주요 대피로 및 주거 밀집 지역의 보행로</p>
+          </div>
+          <div>
+            <h3 className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-4">Target Object</h3>
+            <p className="text-lg font-medium text-gray-800">맨홀 뚜껑 (Manhole Cover)</p>
+          </div>
+          <div>
+            <h3 className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-4">Why Manhole?</h3>
+            <p className="text-base text-gray-600 leading-relaxed">
+              도시 전역에 40~50m 간격으로 설치된 '유비쿼터스' 인프라입니다. 별도의 구조물 없이 도시 전체를 안내망으로 연결하는 최적의 매개체입니다.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* The Problem */}
+      <section id="problem" className="py-24 px-6 bg-gray-50">
+        <div className="max-w-6xl mx-auto">
+          <div className="mb-16">
+            <h2 className="text-4xl font-bold mb-4">기존 환경의 UX적 문제점</h2>
+            <p className="text-xl text-gray-500">패닉 상태에서의 인간의 인지적 한계를 파악합니다.</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="bg-white p-10 rounded-3xl shadow-sm border border-gray-100">
+              <div className="w-14 h-14 bg-red-100 rounded-2xl flex items-center justify-center mb-6">
+                <ArrowDown className="text-red-500 w-7 h-7" />
+              </div>
+              <h3 className="text-2xl font-bold mb-4">시선 아래로의 고착</h3>
+              <p className="text-gray-600 leading-relaxed">
+                재난 발생 시 심리적 위축으로 인해 사람의 시선은 평소(수평)보다 약 15~30도 아래를 향하게 됩니다. (재난 심리학 연구 근거)
+              </p>
+            </div>
+
+            <div className="bg-white p-10 rounded-3xl shadow-sm border border-gray-100">
+              <div className="w-14 h-14 bg-red-100 rounded-2xl flex items-center justify-center mb-6">
+                <AlertTriangle className="text-red-500 w-7 h-7" />
+              </div>
+              <h3 className="text-2xl font-bold mb-4">상단 표지판의 무용지물</h3>
+              <p className="text-gray-600 leading-relaxed">
+                높은 위치의 표지판은 연기나 정전 시 시야에서 완전히 사라지며, 패닉 상태에서는 '터널 시야(Tunnel Vision)' 현상으로 인해 주변부 정보를 인지하지 못합니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Research & Data */}
+      <section id="research" className="py-24 px-6 bg-gray-900 text-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="mb-16 md:text-center">
+            <h2 className="text-4xl font-bold mb-4">데이터 기반 UX 결함 분석</h2>
+            <p className="text-xl text-gray-400">정량적, 정성적 근거를 바탕으로 디자인의 당위성을 입증합니다.</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-16">
+            <div className="bg-gray-800 p-8 rounded-3xl">
+              <Eye className="text-yellow-400 w-8 h-8 mb-4" />
+              <div className="text-4xl font-extrabold text-white mb-2">3.2<span className="text-2xl text-yellow-400">배</span></div>
+              <p className="text-gray-400 font-medium">시각 탐색 시간 향상<br/><span className="text-sm">(고대비 컬러 적용 시)</span></p>
+            </div>
+            <div className="bg-gray-800 p-8 rounded-3xl">
+              <Navigation className="text-yellow-400 w-8 h-8 mb-4" />
+              <div className="text-4xl font-extrabold text-white mb-2">20<span className="text-2xl text-yellow-400">m+</span></div>
+              <p className="text-gray-400 font-medium">정보 인지 거리<br/><span className="text-sm">(야간/우천 반사도료 적용 시)</span></p>
+            </div>
+            <div className="bg-gray-800 p-8 rounded-3xl">
+              <Clock className="text-yellow-400 w-8 h-8 mb-4" />
+              <div className="text-4xl font-extrabold text-white mb-2">-0.8<span className="text-2xl text-yellow-400">초</span></div>
+              <p className="text-gray-400 font-medium">의사결정 시간 단축<br/><span className="text-sm">(단순 심볼 인지 부하 감소)</span></p>
+            </div>
+            <div className="bg-gray-800 p-8 rounded-3xl">
+              <Brain className="text-yellow-400 w-8 h-8 mb-4" />
+              <div className="text-4xl font-extrabold text-white mb-2">-40<span className="text-2xl text-yellow-400">%</span></div>
+              <p className="text-gray-400 font-medium">고립 공포감 감소<br/><span className="text-sm">(지면 안내 시스템 존재만으로)</span></p>
+            </div>
+          </div>
+
+          {/* Evidence */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 border-t border-gray-800 pt-16">
+            <div>
+              <h3 className="text-2xl font-bold mb-6 flex items-center text-yellow-400">
+                <Brain className="mr-3 w-6 h-6" /> 인지 심리학적 근거
+              </h3>
+              <ul className="space-y-4">
+                <li className="bg-gray-800/50 p-4 rounded-xl border border-gray-700">
+                  <strong className="block text-white mb-1">행동 유도성 (Affordance)</strong>
+                  <span className="text-gray-400 text-sm">지면은 인간이 가장 안정감을 느끼는 지지체입니다. 발밑의 정보를 따라가는 행위는 본능적이며 강력한 행동 유도를 일으킵니다.</span>
+                </li>
+                <li className="bg-gray-800/50 p-4 rounded-xl border border-gray-700">
+                  <strong className="block text-white mb-1">연속적 경로 탐색 (Wayfinding)</strong>
+                  <span className="text-gray-400 text-sm">50m 간격의 '선(Line)' 형태 맨홀 배열이 경로의 연속성을 제공하여 방향 상실을 최소화합니다.</span>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-2xl font-bold mb-6 flex items-center text-yellow-400">
+                <ShieldCheck className="mr-3 w-6 h-6" /> 재난 공학/법적 근거
+              </h3>
+              <ul className="space-y-4">
+                <li className="bg-gray-800/50 p-4 rounded-xl border border-gray-700">
+                  <strong className="block text-white mb-1">Luminous Escape Path</strong>
+                  <span className="text-gray-400 text-sm">소방청 화재안전기준(NFSC)상 피난유도선은 지면 1m 이하가 가장 효율적. 맨홀은 연기층 아래 최적의 위치입니다.</span>
+                </li>
+                <li className="bg-gray-800/50 p-4 rounded-xl border border-gray-700">
+                  <strong className="block text-white mb-1">유니버설 디자인 가이드라인</strong>
+                  <span className="text-gray-400 text-sm">언어 장벽이 있는 외국인 및 고령자를 위한 비언어적(Non-verbal) 안내 체계 구축.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Object Audit Table */}
+      <section className="py-24 px-6 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="mb-12">
+            <h2 className="text-4xl font-bold mb-4">기물(맨홀)의 UX적 결함 진단</h2>
+            <p className="text-xl text-gray-500">현재 상태를 분석하고 문제점을 도출합니다.</p>
+          </div>
+
+          <div className="overflow-hidden bg-white rounded-3xl shadow-sm border border-gray-200">
+            <table className="w-full text-left border-collapse">
+              <thead>
+                <tr className="bg-gray-50 border-b border-gray-200">
+                  <th className="py-5 px-6 text-sm font-bold text-gray-500 uppercase">분석 항목</th>
+                  <th className="py-5 px-6 text-sm font-bold text-gray-500 uppercase">현재 맨홀의 상태</th>
+                  <th className="py-5 px-6 text-sm font-bold text-gray-500 uppercase">UX적 문제점</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-100">
+                <tr className="hover:bg-gray-50 transition-colors">
+                  <td className="py-5 px-6 font-bold text-gray-900">정보 전달력</td>
+                  <td className="py-5 px-6 text-gray-600">관리용 텍스트 (오수/우수)</td>
+                  <td className="py-5 px-6 text-red-500 font-medium flex items-center gap-2"><AlertTriangle w={16} /> 시민에게는 '무의미한 데이터'</td>
+                </tr>
+                <tr className="hover:bg-gray-50 transition-colors">
+                  <td className="py-5 px-6 font-bold text-gray-900">시인성</td>
+                  <td className="py-5 px-6 text-gray-600">아스팔트와 유사한 무채색</td>
+                  <td className="py-5 px-6 text-red-500 font-medium flex items-center gap-2"><AlertTriangle w={16} /> 보호색으로 작용하여 발견이 어려움</td>
+                </tr>
+                <tr className="hover:bg-gray-50 transition-colors">
+                  <td className="py-5 px-6 font-bold text-gray-900">상호작용</td>
+                  <td className="py-5 px-6 text-gray-600">단순 덮개 기능</td>
+                  <td className="py-5 px-6 text-red-500 font-medium flex items-center gap-2"><AlertTriangle w={16} /> 도시 공간과 사용자 사이의 소통 단절</td>
+                </tr>
+                <tr className="hover:bg-gray-50 transition-colors">
+                  <td className="py-5 px-6 font-bold text-gray-900">접근성</td>
+                  <td className="py-5 px-6 text-gray-600">저시력자 배려 부족</td>
+                  <td className="py-5 px-6 text-red-500 font-medium flex items-center gap-2"><AlertTriangle w={16} /> 텍스트 중심 표기로 직관적 상황 파악 불가</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      {/* Solution Section */}
+      <section id="solution" className="py-24 px-6 bg-gray-50 border-y border-gray-200 overflow-hidden">
+        <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-16">
+          <div className="w-full lg:w-1/2">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 text-blue-700 font-bold text-sm mb-6">
+              <CheckCircle2 size={16} /> UX 개선 제안
+            </div>
+            <h2 className="text-4xl lg:text-5xl font-extrabold mb-8 text-gray-900 leading-tight">
+              Life-Line Manhole
+            </h2>
+            
+            <div className="space-y-8">
+              <div className="flex gap-4">
+                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-yellow-100 flex items-center justify-center">
+                  <Eye className="text-yellow-600 w-6 h-6" />
+                </div>
+                <div>
+                  <h4 className="text-xl font-bold text-gray-900 mb-2">시각적 강조 (High Visibility)</h4>
+                  <p className="text-gray-600">고채도 Safety Orange / Neon Yellow 적용 및 축광/반사 도료를 사용하여 정전 시에도 자가 발광 효과 구현.</p>
+                </div>
+              </div>
+              <div className="flex gap-4">
+                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center">
+                  <Activity className="text-blue-600 w-6 h-6" />
+                </div>
+                <div>
+                  <h4 className="text-xl font-bold text-gray-900 mb-2">직관적 심볼 (Universal Design)</h4>
+                  <p className="text-gray-600">ISO 7010 표준 '대피소' 픽토그램과 'SHELTER' 영문 병기로 누구나 이해 가능한 디자인.</p>
+                </div>
+              </div>
+              <div className="flex gap-4">
+                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-green-100 flex items-center justify-center">
+                  <Navigation className="text-green-600 w-6 h-6" />
+                </div>
+                <div>
+                  <h4 className="text-xl font-bold text-gray-900 mb-2">방향성 피드백 (Wayfinding)</h4>
+                  <p className="text-gray-600">맨홀 중앙의 대형 화살표가 대피소 방향을 나침반처럼 실시간으로 지시.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          {/* Mockup Visualization */}
+          <div className="w-full lg:w-1/2 flex justify-center relative">
+            {/* Background asphalt texture placeholder */}
+            <div className="absolute inset-0 bg-gray-300 rounded-3xl opacity-20 transform rotate-3 scale-105" style={{backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noise\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.8\' numOctaves=\'4\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100\' height=\'100\' filter=\'url(%23noise)\' opacity=\'0.5\'/%3E%3C/svg%3E")'}}></div>
+            
+            {/* CSS Manhole Design */}
+            <div className="relative z-10 w-80 h-80 md:w-96 md:h-96 rounded-full bg-[#3a3a3a] border-[12px] border-[#2a2a2a] flex flex-col items-center justify-center shadow-2xl transform transition-transform duration-500 hover:scale-105">
+              <div className="absolute inset-2 rounded-full border-[3px] border-[#4a4a4a] border-dashed opacity-50"></div>
+              
+              {/* Directional Arrows (Circular) */}
+              <svg className="absolute inset-4 w-[calc(100%-2rem)] h-[calc(100%-2rem)] text-yellow-400 opacity-80 animate-[spin_20s_linear_infinite]" viewBox="0 0 100 100">
+                <path d="M 50 5 A 45 45 0 0 1 95 50" fill="none" stroke="currentColor" strokeWidth="2" strokeDasharray="5 5" />
+                <path d="M 50 95 A 45 45 0 0 1 5 50" fill="none" stroke="currentColor" strokeWidth="2" strokeDasharray="5 5" />
+              </svg>
+
+              <div className="z-20 flex flex-col items-center justify-center space-y-3">
+                <div className="flex space-x-1 mt-4">
+                  <div className="w-0 h-0 border-l-[10px] border-r-[10px] border-b-[20px] border-transparent border-b-green-400"></div>
+                  <div className="w-0 h-0 border-l-[10px] border-r-[10px] border-b-[20px] border-transparent border-b-blue-400"></div>
+                  <div className="w-0 h-0 border-l-[10px] border-r-[10px] border-b-[20px] border-transparent border-b-yellow-400"></div>
+                </div>
+                
+                <div className="bg-yellow-400 rounded-full p-3 shadow-lg shadow-yellow-400/20">
+                   <Activity className="text-black w-10 h-10" />
+                </div>
+
+                <div className="flex flex-col items-center pt-2">
+                   <Navigation className="text-yellow-400 w-8 h-8 transform rotate-0" />
+                   <h1 className="text-white font-black text-2xl tracking-widest mt-1" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.5)'}}>대피소</h1>
+                   <h2 className="text-yellow-400 font-bold text-sm tracking-widest">SHELTER</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Expected Value & Impact */}
+      <section id="impact" className="py-24 px-6 bg-white">
+        <div className="max-w-6xl mx-auto text-center">
+          <h2 className="text-4xl font-bold mb-16">기대 효과 및 가치</h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="p-8 bg-gray-50 rounded-3xl border border-gray-100 hover:shadow-lg transition-shadow">
+              <div className="w-16 h-16 mx-auto bg-green-100 rounded-2xl flex items-center justify-center mb-6">
+                <Clock className="text-green-600 w-8 h-8" />
+              </div>
+              <h3 className="text-2xl font-bold mb-4 text-gray-900">골든타임 확보</h3>
+              <p className="text-gray-600 leading-relaxed">
+                대피 경로 탐색 시간 단축을 통해 인명 구조 골든타임 준수율을 획기적으로 제고합니다.
+              </p>
+            </div>
+
+            <div className="p-8 bg-gray-50 rounded-3xl border border-gray-100 hover:shadow-lg transition-shadow">
+              <div className="w-16 h-16 mx-auto bg-blue-100 rounded-2xl flex items-center justify-center mb-6">
+                <ShieldCheck className="text-blue-600 w-8 h-8" />
+              </div>
+              <h3 className="text-2xl font-bold mb-4 text-gray-900">저비용 고효율</h3>
+              <p className="text-gray-600 leading-relaxed">
+                기존 인프라(맨홀)의 교체 주기에 맞춰 디자인만 변경하므로 추가 토목 비용을 최소화합니다.
+              </p>
+            </div>
+
+            <div className="p-8 bg-gray-50 rounded-3xl border border-gray-100 hover:shadow-lg transition-shadow">
+              <div className="w-16 h-16 mx-auto bg-yellow-100 rounded-2xl flex items-center justify-center mb-6">
+                <MapPin className="text-yellow-600 w-8 h-8" />
+              </div>
+              <h3 className="text-2xl font-bold mb-4 text-gray-900">포용적 디자인</h3>
+              <p className="text-gray-600 leading-relaxed">
+                어린아이, 노인, 외국인 등 정보 약자에게 평등한 안전 정보를 제공하는 유니버설 디자인을 실현합니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="py-8 text-center text-gray-500 text-sm bg-gray-50 border-t border-gray-200">
+        <p>Public UX Design Project Portfolio</p>
+      </footer>
+    </div>
+  );
+};
+
+export default App;
