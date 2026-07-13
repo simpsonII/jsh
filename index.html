@@ -32,6 +32,9 @@
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            /* 가독성을 위한 기본 행간 및 자간 설정 */
+            letter-spacing: -0.015em;
+            line-height: 1.6;
         }
 
         /* Lenis Smooth Scroll CSS */
@@ -43,7 +46,7 @@
 
         ::selection { background-color: #ffffff; color: #000000; }
 
-        .title-display { font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; }
+        .title-display { font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; }
         .text-reveal-wrapper { overflow: hidden; display: inline-block; }
         .text-reveal { display: inline-block; transform: translateY(100%); }
 
@@ -89,12 +92,12 @@
         .badge-law {
             display: inline-flex;
             align-items: center;
-            padding: 0.15rem 0.5rem;
+            padding: 0.2rem 0.6rem;
             border-radius: 0.25rem;
-            font-size: 0.7rem;
+            font-size: 0.8rem;
             font-weight: 600;
-            background-color: rgba(30, 58, 138, 0.3); /* text-blue-900 transparent */
-            color: #60a5fa; /* text-blue-400 */
+            background-color: rgba(30, 58, 138, 0.3);
+            color: #60a5fa;
             border: 1px solid rgba(30, 58, 138, 0.6);
             margin-left: 0.5rem;
             vertical-align: middle;
@@ -110,10 +113,10 @@
 
     <!-- GNB (블러 배경 추가로 가독성 개선 및 고정) -->
     <nav class="fixed top-0 left-0 w-full z-50 bg-[#0a0a0a]/85 backdrop-blur-md border-b border-gray-800/60 text-white px-6 py-5 md:px-12 flex justify-between items-center pointer-events-auto transition-all duration-300">
-        <a href="#" class="text-xl font-bold tracking-tight z-50 relative">정성호 아카이브.</a>
+        <a href="#home" class="nav-item text-xl font-bold tracking-tight z-50 relative">정성호 아카이브.</a>
         
         <!-- Desktop Nav -->
-        <div class="hidden lg:flex gap-8 text-sm font-medium tracking-wide">
+        <div class="hidden lg:flex gap-8 text-base font-medium tracking-wide">
             <a href="#cat1" class="nav-item relative pb-1">민생·안전<span class="nav-item-border"></span></a>
             <a href="#cat2" class="nav-item relative pb-1">검찰·과거사<span class="nav-item-border"></span></a>
             <a href="#cat3" class="nav-item relative pb-1">국익·이민<span class="nav-item-border"></span></a>
@@ -131,47 +134,66 @@
 
     <!-- Mobile Menu Overlay -->
     <div id="mobile-menu" class="fixed inset-0 bg-[#0a0a0a]/95 backdrop-blur-sm z-40 flex flex-col items-center justify-center gap-8 opacity-0 pointer-events-none transition-opacity duration-300">
-        <a href="#cat1" class="mobile-nav-item text-2xl font-bold text-white tracking-tight hover:text-gray-400 transition-colors">민생·안전</a>
-        <a href="#cat2" class="mobile-nav-item text-2xl font-bold text-white tracking-tight hover:text-gray-400 transition-colors">검찰·과거사</a>
-        <a href="#cat3" class="mobile-nav-item text-2xl font-bold text-white tracking-tight hover:text-gray-400 transition-colors">국익·이민</a>
-        <a href="#cat4" class="mobile-nav-item text-2xl font-bold text-white tracking-tight hover:text-gray-400 transition-colors">교정·혁신</a>
-        <a href="#cat5" class="mobile-nav-item text-2xl font-bold text-white tracking-tight hover:text-gray-400 transition-colors">소통·참여</a>
+        <a href="#home" class="mobile-nav-item text-3xl font-bold text-white tracking-tight hover:text-gray-400 transition-colors">홈으로</a>
+        <a href="#cat1" class="mobile-nav-item text-3xl font-bold text-white tracking-tight hover:text-gray-400 transition-colors">민생·안전</a>
+        <a href="#cat2" class="mobile-nav-item text-3xl font-bold text-white tracking-tight hover:text-gray-400 transition-colors">검찰·과거사</a>
+        <a href="#cat3" class="mobile-nav-item text-3xl font-bold text-white tracking-tight hover:text-gray-400 transition-colors">국익·이민</a>
+        <a href="#cat4" class="mobile-nav-item text-3xl font-bold text-white tracking-tight hover:text-gray-400 transition-colors">교정·혁신</a>
+        <a href="#cat5" class="mobile-nav-item text-3xl font-bold text-white tracking-tight hover:text-gray-400 transition-colors">소통·참여</a>
     </div>
 
-    <!-- Mobile Bottom Dock (Apple UI Style) -->
-    <div id="mobile-dock" class="lg:hidden fixed bottom-6 left-1/2 -translate-x-1/2 z-40 bg-white/10 backdrop-blur-xl border border-white/10 rounded-full px-2 py-2 flex items-center gap-2 shadow-2xl pointer-events-auto w-[90%] max-w-[360px] overflow-x-auto no-scrollbar justify-between">
-        <a href="#cat1" class="dock-link flex flex-col items-center justify-center w-14 h-12 rounded-full active:bg-white/20 transition-colors">
-            <svg class="w-5 h-5 text-gray-300 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
-            <span class="text-[10px] text-gray-300 font-medium tracking-tight">민생</span>
-        </a>
-        <a href="#cat2" class="dock-link flex flex-col items-center justify-center w-14 h-12 rounded-full active:bg-white/20 transition-colors">
-            <svg class="w-5 h-5 text-gray-300 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"></path></svg>
-            <span class="text-[10px] text-gray-300 font-medium tracking-tight">검찰</span>
-        </a>
-        <a href="#cat3" class="dock-link flex flex-col items-center justify-center w-14 h-12 rounded-full active:bg-white/20 transition-colors">
-            <svg class="w-5 h-5 text-gray-300 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-            <span class="text-[10px] text-gray-300 font-medium tracking-tight">국익</span>
-        </a>
-        <a href="#cat4" class="dock-link flex flex-col items-center justify-center w-14 h-12 rounded-full active:bg-white/20 transition-colors">
-            <svg class="w-5 h-5 text-gray-300 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
-            <span class="text-[10px] text-gray-300 font-medium tracking-tight">교정</span>
-        </a>
-        <a href="#cat5" class="dock-link flex flex-col items-center justify-center w-14 h-12 rounded-full active:bg-white/20 transition-colors">
-            <svg class="w-5 h-5 text-gray-300 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path></svg>
-            <span class="text-[10px] text-gray-300 font-medium tracking-tight">소통</span>
-        </a>
+    <!-- Mobile Toggleable Dock (Apple UI Style) -->
+    <div class="lg:hidden fixed bottom-6 left-1/2 -translate-x-1/2 z-40 flex flex-col items-center justify-end pointer-events-none w-full max-w-[380px]">
+        <!-- Dock Menu Container (Initially collapsed/hidden) -->
+        <div id="dock-menu" class="bg-white/10 backdrop-blur-xl border border-white/10 rounded-full px-2 py-2 flex items-center justify-between shadow-2xl pointer-events-auto overflow-x-auto no-scrollbar w-0 opacity-0 h-0 transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] origin-bottom mb-2">
+            <a href="#home" class="dock-link flex flex-col items-center justify-center min-w-[56px] h-14 rounded-full active:bg-white/20 transition-colors flex-shrink-0">
+                <svg class="w-5 h-5 text-gray-200 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                <span class="text-[10px] text-gray-200 font-medium tracking-tight">처음</span>
+            </a>
+            <a href="#overview" class="dock-link flex flex-col items-center justify-center min-w-[56px] h-14 rounded-full active:bg-white/20 transition-colors flex-shrink-0">
+                <svg class="w-5 h-5 text-gray-200 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                <span class="text-[10px] text-gray-200 font-medium tracking-tight">기록</span>
+            </a>
+            <a href="#cat1" class="dock-link flex flex-col items-center justify-center min-w-[56px] h-14 rounded-full active:bg-white/20 transition-colors flex-shrink-0">
+                <svg class="w-5 h-5 text-gray-200 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                <span class="text-[10px] text-gray-200 font-medium tracking-tight">민생</span>
+            </a>
+            <a href="#cat2" class="dock-link flex flex-col items-center justify-center min-w-[56px] h-14 rounded-full active:bg-white/20 transition-colors flex-shrink-0">
+                <svg class="w-5 h-5 text-gray-200 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"></path></svg>
+                <span class="text-[10px] text-gray-200 font-medium tracking-tight">검찰</span>
+            </a>
+            <a href="#cat3" class="dock-link flex flex-col items-center justify-center min-w-[56px] h-14 rounded-full active:bg-white/20 transition-colors flex-shrink-0">
+                <svg class="w-5 h-5 text-gray-200 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
+                <span class="text-[10px] text-gray-200 font-medium tracking-tight">국익</span>
+            </a>
+            <a href="#cat4" class="dock-link flex flex-col items-center justify-center min-w-[56px] h-14 rounded-full active:bg-white/20 transition-colors flex-shrink-0">
+                <svg class="w-5 h-5 text-gray-200 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                <span class="text-[10px] text-gray-200 font-medium tracking-tight">교정</span>
+            </a>
+            <a href="#cat5" class="dock-link flex flex-col items-center justify-center min-w-[56px] h-14 rounded-full active:bg-white/20 transition-colors flex-shrink-0">
+                <svg class="w-5 h-5 text-gray-200 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path></svg>
+                <span class="text-[10px] text-gray-200 font-medium tracking-tight">소통</span>
+            </a>
+        </div>
+
+        <!-- Toggle Button (Floating Action Button) -->
+        <button id="dock-toggle-btn" class="w-14 h-14 bg-blue-600 hover:bg-blue-500 rounded-full text-white shadow-xl flex items-center justify-center pointer-events-auto transition-transform duration-300 transform z-50">
+            <svg id="dock-toggle-icon" class="w-6 h-6 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path> <!-- Plus Icon -->
+            </svg>
+        </button>
     </div>
 
     <!-- Hero Section -->
-    <header class="relative w-full h-[100svh] flex flex-col justify-end pb-32 md:pb-24 px-6 md:px-12 pt-32">
+    <header id="home" class="relative w-full h-[100svh] flex flex-col justify-end pb-32 md:pb-24 px-6 md:px-12 pt-32">
         <div class="absolute inset-0 z-[-10] parallax-img-container pointer-events-none">
             <img src="image_1.JPG" alt="Hero Background" class="parallax-img hero-bg w-full h-full object-cover">
             <div class="absolute inset-0 bg-black/60"></div>
         </div>
 
         <div class="z-10 w-full max-w-7xl mx-auto pointer-events-none">
-            <p class="text-sm md:text-base font-light tracking-[0.2em] text-blue-400 mb-4 opacity-80 gs-reveal">제69대 법무부장관 취임 1주년 성과 기록</p>
-            <h1 class="title-display text-4xl md:text-7xl lg:text-8xl break-keep">
+            <p class="text-base md:text-lg font-light tracking-[0.2em] text-blue-400 mb-4 opacity-80 gs-reveal">제69대 법무부장관 취임 1주년 성과 기록</p>
+            <h1 class="title-display text-5xl md:text-7xl lg:text-8xl break-keep">
                 <div class="text-reveal-wrapper"><span class="text-reveal">국민의 삶을 바꾸는 법무행정,</span></div><br>
                 <div class="text-reveal-wrapper"><span class="text-reveal">정성호 장관 취임 1년.</span></div>
             </h1>
@@ -185,49 +207,48 @@
     </header>
 
     <!-- Overview Section (Stats & Photo Archive) -->
-    <section id="overview" class="py-16 md:py-24 px-6 md:px-12 bg-[#141414]">
+    <section id="overview" class="py-24 md:py-32 px-6 md:px-12 bg-[#141414]">
         <div class="max-w-7xl mx-auto">
             
             <!-- Photo Archive -->
             <div class="mb-24 md:mb-32">
-                <div class="flex flex-col items-center justify-center mb-8 md:mb-10 gs-fade-up">
-                    <h2 class="text-xs tracking-[0.2em] text-gray-500 uppercase mb-2">Photo Archive</h2>
-                    <h3 class="text-2xl md:text-4xl font-bold tracking-tight">현장의 기록</h3>
+                <div class="flex flex-col items-center justify-center mb-10 md:mb-12 gs-fade-up">
+                    <h2 class="text-sm tracking-[0.2em] text-gray-500 uppercase mb-3">Photo Archive</h2>
+                    <h3 class="text-3xl md:text-5xl font-bold tracking-tight">현장의 기록</h3>
                 </div>
 
                 <div id="archive-wrapper" class="relative w-full">
-                    
                     <div id="archive-overlay" class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-[#141414] via-[#141414]/90 to-transparent z-20 flex items-end justify-center pb-4 pointer-events-none">
-                        <button id="btn-load-more" class="group flex flex-col items-center gap-2 text-xs tracking-[0.2em] text-white uppercase hover:text-gray-400 transition-colors pointer-events-auto cursor-pointer">
+                        <button id="btn-load-more" class="group flex flex-col items-center gap-2 text-sm tracking-[0.2em] text-white uppercase hover:text-gray-400 transition-colors pointer-events-auto cursor-pointer">
                             <span>더보기 (View All)</span>
                             <svg class="w-6 h-6 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 14l-7 7m0 0l-7-7"></path></svg>
                         </button>
                     </div>
 
-                    <!-- 초기 4장 사진 그리드 (로컬 이미지로 교체 완료) -->
+                    <!-- 초기 4장 사진 그리드 (로컬 이미지로 교체 및 비율 유지) -->
                     <div class="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-4 h-auto md:h-[600px] gallery-container gs-fade-up relative z-10" id="initial-archive-grid">
                         <div class="gallery-item col-span-1 md:col-span-2 md:row-span-2 bg-gray-800 overflow-hidden relative group cursor-pointer aspect-square md:aspect-auto h-full rounded-xl md:rounded-none">
                             <img src="image_2.JPG" alt="현장 방문" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity"></div>
-                            <div class="absolute bottom-6 left-6">
-                                <span class="text-xs text-blue-400 tracking-widest uppercase mb-1 block">On-site Activity</span>
-                                <div class="text-white font-bold text-xl md:text-2xl">국민 곁으로 가는 현장 행보</div>
+                            <div class="absolute bottom-8 left-8">
+                                <span class="text-sm text-blue-400 tracking-widest uppercase mb-2 block font-medium">On-site Activity</span>
+                                <div class="text-white font-bold text-2xl md:text-3xl">국민 곁으로 가는 현장 행보</div>
                             </div>
                         </div>
                         <div class="gallery-item col-span-1 md:col-span-1 md:row-span-1 bg-gray-800 overflow-hidden relative group cursor-pointer aspect-[4/3] md:aspect-auto h-full rounded-xl md:rounded-none">
                             <img src="image_3.JPG" alt="정책 발표" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                             <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-60"></div>
-                            <div class="absolute bottom-4 left-4 text-white font-bold">주요 정책 발표 및 브리핑</div>
+                            <div class="absolute bottom-5 left-5 text-white font-bold text-lg">주요 정책 발표 및 브리핑</div>
                         </div>
                         <div class="gallery-item col-span-1 md:col-span-1 md:row-span-1 bg-gray-800 overflow-hidden relative group cursor-pointer aspect-[4/3] md:aspect-auto h-full rounded-xl md:rounded-none">
                             <img src="image_4.JPG" alt="국제 회의" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                             <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-60"></div>
-                            <div class="absolute bottom-4 left-4 text-white font-bold">글로벌 스탠다드 확립</div>
+                            <div class="absolute bottom-5 left-5 text-white font-bold text-lg">글로벌 스탠다드 확립</div>
                         </div>
                         <div class="gallery-item col-span-1 md:col-span-2 md:row-span-1 bg-gray-800 overflow-hidden relative group cursor-pointer aspect-[16/9] md:aspect-auto h-full rounded-xl md:rounded-none">
                             <img src="image_5.JPG" alt="시민 소통" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                             <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-60"></div>
-                            <div class="absolute bottom-4 left-4 text-white font-bold">국민과 소통하는 법무행정</div>
+                            <div class="absolute bottom-5 left-5 text-white font-bold text-lg">국민과 소통하는 법무행정</div>
                         </div>
                     </div>
 
@@ -240,165 +261,173 @@
                         <div class="extended-archive-item aspect-[4/3] rounded-xl overflow-hidden group cursor-pointer relative"><img src="image_5.JPG" alt="기록" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"></div>
                     </div>
                 </div>
+
+                <!-- 아카이브 자료실 이동 버튼 추가 (요청사항 반영) -->
+                <div class="mt-12 flex justify-center gs-fade-up">
+                    <a href="#cat5" class="nav-item inline-flex items-center gap-3 px-8 py-4 rounded-full border border-gray-700 hover:bg-gray-800 hover:border-gray-500 text-white text-sm md:text-base font-semibold tracking-wide transition-all group">
+                        전체 사진 아카이빙 보기
+                        <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </a>
+                </div>
             </div>
 
             <!-- Stats -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 border-t border-gray-800 pt-16">
                 <div class="stat-item flex flex-col gs-fade-up">
-                    <span class="text-xs md:text-sm text-gray-500 mb-2 md:mb-4 tracking-widest uppercase font-medium">국제분쟁 완승 환수</span>
+                    <span class="text-sm md:text-base text-gray-500 mb-2 md:mb-4 tracking-widest uppercase font-medium">국제분쟁 완승 환수</span>
                     <div class="flex items-baseline gap-2">
-                        <span class="text-5xl md:text-7xl font-bold text-white counter" data-target="3">0</span>
-                        <span class="text-lg md:text-xl text-gray-400">연승</span>
+                        <span class="text-6xl md:text-8xl font-bold text-white counter" data-target="3">0</span>
+                        <span class="text-xl md:text-2xl text-gray-400 font-medium">연승</span>
                     </div>
-                    <p class="mt-2 md:mt-4 text-sm text-gray-400 leading-relaxed">론스타·엘리엇·쉰들러 국제분쟁 전부 승소 및 소송비용 환수</p>
+                    <p class="mt-3 md:mt-5 text-base md:text-lg text-gray-400 leading-relaxed">론스타·엘리엇·쉰들러 국제분쟁 전부 승소 및 소송비용 환수</p>
                 </div>
                 <div class="stat-item flex flex-col gs-fade-up">
-                    <span class="text-xs md:text-sm text-gray-500 mb-2 md:mb-4 tracking-widest uppercase font-medium">정상화된 직접 수사권</span>
+                    <span class="text-sm md:text-base text-gray-500 mb-2 md:mb-4 tracking-widest uppercase font-medium">정상화된 직접 수사권</span>
                     <div class="flex items-baseline gap-2">
-                        <span class="text-5xl md:text-7xl font-bold text-white counter" data-target="457">0</span>
-                        <span class="text-lg md:text-xl text-gray-400">개</span>
+                        <span class="text-6xl md:text-8xl font-bold text-white counter" data-target="457">0</span>
+                        <span class="text-xl md:text-2xl text-gray-400 font-medium">개</span>
                     </div>
-                    <p class="mt-2 md:mt-4 text-sm text-gray-400 leading-relaxed">비대해진 검찰 직접 수사권을 대폭 축소하여 제자리로 복원</p>
+                    <p class="mt-3 md:mt-5 text-base md:text-lg text-gray-400 leading-relaxed">비대해진 검찰 직접 수사권을 대폭 축소하여 제자리로 복원</p>
                 </div>
                 <div class="stat-item flex flex-col gs-fade-up">
-                    <span class="text-xs md:text-sm text-gray-500 mb-2 md:mb-4 tracking-widest uppercase font-medium">과거사 배상 예비비</span>
+                    <span class="text-sm md:text-base text-gray-500 mb-2 md:mb-4 tracking-widest uppercase font-medium">과거사 배상 예비비</span>
                     <div class="flex items-baseline gap-2">
-                        <span class="text-5xl md:text-7xl font-bold text-white counter" data-target="2457">0</span>
-                        <span class="text-lg md:text-xl text-gray-400">억원</span>
+                        <span class="text-6xl md:text-8xl font-bold text-white counter" data-target="2457">0</span>
+                        <span class="text-xl md:text-2xl text-gray-400 font-medium">억원</span>
                     </div>
-                    <p class="mt-2 md:mt-4 text-sm text-gray-400 leading-relaxed">국가폭력 피해자의 온전한 권리 회복을 위한 배상금 확보</p>
+                    <p class="mt-3 md:mt-5 text-base md:text-lg text-gray-400 leading-relaxed">국가폭력 피해자의 온전한 권리 회복을 위한 배상금 확보</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- 카테고리 01: 민생·안전 -->
-    <section id="cat1" class="py-16 md:py-32 px-6 md:px-12 w-full max-w-7xl mx-auto border-t border-gray-800">
-        <h2 class="text-xs md:text-sm tracking-[0.2em] text-blue-500 uppercase mb-3 gs-fade-up">첫 번째 성과</h2>
-        <h3 class="text-3xl md:text-5xl font-bold mb-6 md:mb-12 tracking-tight gs-fade-up leading-tight">국민의 삶을 바꾸는<br class="md:hidden"> 민생 법무행정</h3>
-        <p class="text-gray-400 text-base md:text-lg mb-12 md:mb-16 gs-fade-up">민생경제 보호와 사회안전 강화를 위해 신속하고 엄정한 법무행정을 추진했습니다.</p>
+    <section id="cat1" class="py-24 md:py-32 px-6 md:px-12 w-full max-w-7xl mx-auto border-t border-gray-800">
+        <h2 class="text-sm tracking-[0.2em] text-blue-500 uppercase mb-3 gs-fade-up font-semibold">첫 번째 성과</h2>
+        <h3 class="text-4xl md:text-6xl font-bold mb-8 md:mb-16 tracking-tight gs-fade-up leading-tight">국민의 삶을 바꾸는<br class="md:hidden"> 민생 법무행정</h3>
+        <p class="text-gray-400 text-lg md:text-xl mb-12 md:mb-16 gs-fade-up leading-relaxed">민생경제 보호와 사회안전 강화를 위해 신속하고 엄정한 법무행정을 추진했습니다.</p>
         
-        <div class="grid grid-cols-1 gap-12 py-8 md:py-12 border-t border-gray-800 group gs-fade-up transition-colors hover:bg-[#111] rounded-xl px-4 md:px-8 -mx-4 md:mx-0">
+        <div class="grid grid-cols-1 gap-16 py-8 md:py-12 border-t border-gray-800 group gs-fade-up transition-colors hover:bg-[#111] rounded-2xl px-4 md:px-8 -mx-4 md:mx-0">
             <div>
-                <h4 class="text-xl md:text-2xl font-semibold text-gray-300 group-hover:text-white transition-colors mb-6">1. 든든한 민생경제 보호</h4>
-                <ul class="space-y-6 text-base md:text-lg group-hover:text-gray-200 transition-colors">
-                    <li class="flex items-start gap-3">
-                        <span class="text-blue-500 mt-1 font-bold">■</span> 
+                <h4 class="text-2xl md:text-3xl font-bold text-gray-200 group-hover:text-white transition-colors mb-8">1. 든든한 민생경제 보호</h4>
+                <ul class="space-y-8 text-lg md:text-xl group-hover:text-gray-100 transition-colors leading-relaxed tracking-tight">
+                    <li class="flex items-start gap-4">
+                        <span class="text-blue-500 mt-1 font-bold text-xl">■</span> 
                         <div>
-                            <span class="text-white font-medium">코스피 1만 시대 주춧돌 마련</span>
-                            <p class="text-sm mt-1.5 text-gray-400">집중투표제 의무화 등 선진적인 상법 개정안 통과</p>
+                            <span class="text-white font-semibold">코스피 1만 시대 주춧돌 마련</span>
+                            <p class="mt-2 text-gray-400 leading-loose">집중투표제 의무화 등 선진적인 상법 개정안 통과</p>
                         </div>
                     </li>
-                    <li class="flex items-start gap-3">
-                        <span class="text-blue-500 mt-1 font-bold">■</span> 
+                    <li class="flex items-start gap-4">
+                        <span class="text-blue-500 mt-1 font-bold text-xl">■</span> 
                         <div>
-                            <span class="text-white font-medium">67년 만의 민법 전면 개정 추진</span>
-                            <p class="text-sm mt-1.5 text-gray-400">시대 변화에 맞춘 민법 현대화 기반 마련 및 친족상도례 개편, 패륜 상속 제한 규정 정비</p>
+                            <span class="text-white font-semibold">67년 만의 민법 전면 개정 추진</span>
+                            <p class="mt-2 text-gray-400 leading-loose">시대 변화에 맞춘 민법 현대화 기반 마련 및 친족상도례 개편, 패륜 상속 제한 규정 정비</p>
                         </div>
                     </li>
-                    <li class="flex items-start gap-3">
-                        <span class="text-blue-500 mt-1 font-bold">■</span> 
+                    <li class="flex items-start gap-4">
+                        <span class="text-blue-500 mt-1 font-bold text-xl">■</span> 
                         <div>
-                            <span class="text-white font-medium">비아파트 '깜깜이 관리비' 해소</span>
-                            <p class="text-sm mt-1.5 text-gray-400">상가 및 오피스텔 등 관리비 세부 내역 공개를 의무화하여 투명성 제고</p>
+                            <span class="text-white font-semibold">비아파트 '깜깜이 관리비' 해소</span>
+                            <p class="mt-2 text-gray-400 leading-loose">상가 및 오피스텔 등 관리비 세부 내역 공개를 의무화하여 투명성 제고</p>
                         </div>
                     </li>
-                    <li class="flex items-start gap-3">
-                        <span class="text-blue-500 mt-1 font-bold">■</span> 
+                    <li class="flex items-start gap-4">
+                        <span class="text-blue-500 mt-1 font-bold text-xl">■</span> 
                         <div class="flex flex-col">
                             <div>
-                                <span class="text-white font-medium">서민 다중피해 사기범죄 처벌 대폭 강화</span>
+                                <span class="text-white font-semibold">서민 다중피해 사기범죄 처벌 대폭 강화</span>
                                 <span class="badge-law">민생·안전 10대 법안</span>
                             </div>
-                            <p class="text-sm mt-1.5 text-gray-400">전세사기, 보이스피싱, 투자리딩방 등 서민 대상 사기범죄 최대 징역 30년형으로 처벌 강화</p>
+                            <p class="mt-2 text-gray-400 leading-loose">전세사기, 보이스피싱, 투자리딩방 등 서민 대상 사기범죄 최대 징역 30년형으로 처벌 강화</p>
                         </div>
                     </li>
-                    <li class="flex items-start gap-3">
-                        <span class="text-blue-500 mt-1 font-bold">■</span> 
+                    <li class="flex items-start gap-4">
+                        <span class="text-blue-500 mt-1 font-bold text-xl">■</span> 
                         <div>
-                            <span class="text-white font-medium">시장경제 질서 저해 경제범죄 엄단</span>
-                            <p class="text-sm mt-1.5 text-gray-400">유가담합 등 국민의 삶을 위협하는 불공정 거래 행위 엄정 대응</p>
+                            <span class="text-white font-semibold">시장경제 질서 저해 경제범죄 엄단</span>
+                            <p class="mt-2 text-gray-400 leading-loose">유가담합 등 국민의 삶을 위협하는 불공정 거래 행위 엄정 대응</p>
                         </div>
                     </li>
-                    <li class="flex items-start gap-3">
-                        <span class="text-blue-500 mt-1 font-bold">■</span> 
+                    <li class="flex items-start gap-4">
+                        <span class="text-blue-500 mt-1 font-bold text-xl">■</span> 
                         <div>
-                            <span class="text-white font-medium">사회봉사명령 활용 민생 지원</span>
-                            <p class="text-sm mt-1.5 text-gray-400">수해 복구 현장 2,251명 긴급 투입 및 농번기 일손 부족 농가 지원 확대</p>
+                            <span class="text-white font-semibold">사회봉사명령 활용 민생 지원</span>
+                            <p class="mt-2 text-gray-400 leading-loose">수해 복구 현장 2,251명 긴급 투입 및 농번기 일손 부족 농가 지원 확대</p>
                         </div>
                     </li>
-                    <li class="flex items-start gap-3">
-                        <span class="text-blue-500 mt-1 font-bold">■</span> 
+                    <li class="flex items-start gap-4">
+                        <span class="text-blue-500 mt-1 font-bold text-xl">■</span> 
                         <div>
-                            <span class="text-white font-medium">'동물의 비물건화' 민법 개정 추진</span>
-                            <p class="text-sm mt-1.5 text-gray-400">동물의 법적 지위 개선을 위한 대국민 여론조사 및 토론회 실시</p>
+                            <span class="text-white font-semibold">'동물의 비물건화' 민법 개정 추진</span>
+                            <p class="mt-2 text-gray-400 leading-loose">동물의 법적 지위 개선을 위한 대국민 여론조사 및 토론회 실시</p>
                         </div>
                     </li>
                 </ul>
             </div>
             
-            <div class="border-t border-gray-800/50 pt-8 mt-2">
-                <h4 class="text-xl md:text-2xl font-semibold text-gray-300 group-hover:text-white transition-colors mb-6">2. 국민의 생명과 안전을 지키는 형사사법 혁신</h4>
-                <ul class="space-y-6 text-base md:text-lg group-hover:text-gray-200 transition-colors">
-                    <li class="flex items-start gap-3">
-                        <span class="text-blue-500 mt-1 font-bold">■</span> 
+            <div class="border-t border-gray-800/50 pt-12 mt-4">
+                <h4 class="text-2xl md:text-3xl font-bold text-gray-200 group-hover:text-white transition-colors mb-8">2. 국민의 생명과 안전을 지키는 형사사법 혁신</h4>
+                <ul class="space-y-8 text-lg md:text-xl group-hover:text-gray-100 transition-colors leading-relaxed tracking-tight">
+                    <li class="flex items-start gap-4">
+                        <span class="text-blue-500 mt-1 font-bold text-xl">■</span> 
                         <div class="flex flex-col">
                             <div>
-                                <span class="text-white font-medium">스토킹 피해자 보호망 획기적 강화</span>
+                                <span class="text-white font-semibold">스토킹 피해자 보호망 획기적 강화</span>
                                 <span class="badge-law">민생·안전 10대 법안</span>
                             </div>
-                            <p class="text-sm mt-1.5 text-gray-400">전자발찌 가해자 접근 시 실시간 위치 알림 시행 및 피해자가 직접 법원에 접근금지 신청 가능한 제도 도입</p>
+                            <p class="mt-2 text-gray-400 leading-loose">전자발찌 가해자 접근 시 실시간 위치 알림 시행 및 피해자가 직접 법원에 접근금지 신청 가능한 제도 도입</p>
                         </div>
                     </li>
-                    <li class="flex items-start gap-3">
-                        <span class="text-blue-500 mt-1 font-bold">■</span> 
+                    <li class="flex items-start gap-4">
+                        <span class="text-blue-500 mt-1 font-bold text-xl">■</span> 
                         <div class="flex flex-col">
                             <div>
-                                <span class="text-white font-medium">강력범죄 피해자 법률지원 및 권리 확대</span>
+                                <span class="text-white font-semibold">강력범죄 피해자 법률지원 및 권리 확대</span>
                                 <span class="badge-law">민생·안전 10대 법안</span>
                             </div>
-                            <p class="text-sm mt-1.5 text-gray-400">살인·강도 등 강력범죄 피해자에게 수사 초기부터 국선변호사 지원 및 재판기록 열람, 절차 참여권 확대</p>
+                            <p class="mt-2 text-gray-400 leading-loose">살인·강도 등 강력범죄 피해자에게 수사 초기부터 국선변호사 지원 및 재판기록 열람, 절차 참여권 확대</p>
                         </div>
                     </li>
-                    <li class="flex items-start gap-3">
-                        <span class="text-blue-500 mt-1 font-bold">■</span> 
+                    <li class="flex items-start gap-4">
+                        <span class="text-blue-500 mt-1 font-bold text-xl">■</span> 
                         <div class="flex flex-col">
                             <div>
-                                <span class="text-white font-medium">고위험 성범죄자 관리 감독 강화</span>
+                                <span class="text-white font-semibold">고위험 성범죄자 관리 감독 강화</span>
                                 <span class="badge-law">민생·안전 10대 법안</span>
                             </div>
-                            <p class="text-sm mt-1.5 text-gray-400">피해자 나이 불문 재범 위험이 높은 성범죄자에게 1:1 전담 보호관찰 전면 확대</p>
+                            <p class="mt-2 text-gray-400 leading-loose">피해자 나이 불문 재범 위험이 높은 성범죄자에게 1:1 전담 보호관찰 전면 확대</p>
                         </div>
                     </li>
-                    <li class="flex items-start gap-3">
-                        <span class="text-blue-500 mt-1 font-bold">■</span> 
+                    <li class="flex items-start gap-4">
+                        <span class="text-blue-500 mt-1 font-bold text-xl">■</span> 
                         <div class="flex flex-col">
                             <div>
-                                <span class="text-white font-medium">사이버·다중피해 범죄 철저 대응</span>
+                                <span class="text-white font-semibold">사이버·다중피해 범죄 철저 대응</span>
                                 <span class="badge-law">민생·안전 10대 법안</span>
                             </div>
-                            <p class="text-sm mt-1.5 text-gray-400">디지털 성범죄 전자증거 보전요청 제도 도입 및 보이스피싱 등 부패범죄수익 필요적 몰수·추징 근거 마련</p>
+                            <p class="mt-2 text-gray-400 leading-loose">디지털 성범죄 전자증거 보전요청 제도 도입 및 보이스피싱 등 부패범죄수익 필요적 몰수·추징 근거 마련</p>
                         </div>
                     </li>
-                    <li class="flex items-start gap-3">
-                        <span class="text-blue-500 mt-1 font-bold">■</span> 
+                    <li class="flex items-start gap-4">
+                        <span class="text-blue-500 mt-1 font-bold text-xl">■</span> 
                         <div>
-                            <span class="text-white font-medium">범죄피해자 보호 및 경제적 지원 확대</span>
-                            <p class="text-sm mt-1.5 text-gray-400">생계위기 피해자 '긴급 생활안정비(350만원)' 신설, 유족 구조금 감액 조항 삭제 및 자녀 연령 24세 상향으로 구조금 현실화</p>
+                            <span class="text-white font-semibold">범죄피해자 보호 및 경제적 지원 확대</span>
+                            <p class="mt-2 text-gray-400 leading-loose">생계위기 피해자 '긴급 생활안정비(350만원)' 신설, 유족 구조금 감액 조항 삭제 및 자녀 연령 24세 상향으로 구조금 현실화</p>
                         </div>
                     </li>
-                    <li class="flex items-start gap-3">
-                        <span class="text-blue-500 mt-1 font-bold">■</span> 
+                    <li class="flex items-start gap-4">
+                        <span class="text-blue-500 mt-1 font-bold text-xl">■</span> 
                         <div>
-                            <span class="text-white font-medium">법률구조 통합시스템 및 비밀유지권 도입</span>
-                            <p class="text-sm mt-1.5 text-gray-400">AI 맞춤형 법률지원 원스톱 서비스 개시 및 국제 기준에 부합하는 변호인 비밀유지권 최초 입법화</p>
+                            <span class="text-white font-semibold">법률구조 통합시스템 및 비밀유지권 도입</span>
+                            <p class="mt-2 text-gray-400 leading-loose">AI 맞춤형 법률지원 원스톱 서비스 개시 및 국제 기준에 부합하는 변호인 비밀유지권 최초 입법화</p>
                         </div>
                     </li>
-                    <li class="flex items-start gap-3">
-                        <span class="text-blue-500 mt-1 font-bold">■</span> 
+                    <li class="flex items-start gap-4">
+                        <span class="text-blue-500 mt-1 font-bold text-xl">■</span> 
                         <div>
-                            <span class="text-white font-medium">마약범죄 총력 대응 및 해외 도피사범 강제송환</span>
-                            <p class="text-sm mt-1.5 text-gray-400">정부합동수사본부 출범. 역대 최대 캄보디아 스캠 조직 73명 및 국제 마약왕 강제송환 등 국제 공조 강화</p>
+                            <span class="text-white font-semibold">마약범죄 총력 대응 및 해외 도피사범 강제송환</span>
+                            <p class="mt-2 text-gray-400 leading-loose">정부합동수사본부 출범. 역대 최대 캄보디아 스캠 조직 73명 및 국제 마약왕 강제송환 등 국제 공조 강화</p>
                         </div>
                     </li>
                 </ul>
@@ -407,39 +436,39 @@
     </section>
 
     <!-- 카테고리 02: 검찰·과거사 -->
-    <section id="cat2" class="py-16 md:py-32 px-6 md:px-12 w-full max-w-7xl mx-auto border-t border-gray-800">
-        <h2 class="text-xs md:text-sm tracking-[0.2em] text-blue-500 uppercase mb-3 gs-fade-up">두 번째 성과</h2>
-        <h3 class="text-3xl md:text-5xl font-bold mb-6 md:mb-12 tracking-tight gs-fade-up leading-tight">국민을 위한 검찰,<br class="md:hidden"> 역사 정의 확립</h3>
-        <p class="text-gray-400 text-base md:text-lg mb-12 md:mb-16 gs-fade-up">시대적 소명인 검찰개혁을 흔들림 없이 추진하고, 억울한 과거사 청산과 친일재산 환수에 앞장섰습니다.</p>
+    <section id="cat2" class="py-24 md:py-32 px-6 md:px-12 w-full max-w-7xl mx-auto border-t border-gray-800">
+        <h2 class="text-sm tracking-[0.2em] text-blue-500 uppercase mb-3 gs-fade-up font-semibold">두 번째 성과</h2>
+        <h3 class="text-4xl md:text-6xl font-bold mb-8 md:mb-16 tracking-tight gs-fade-up leading-tight">국민을 위한 검찰,<br class="md:hidden"> 역사 정의 확립</h3>
+        <p class="text-gray-400 text-lg md:text-xl mb-12 md:mb-16 gs-fade-up leading-relaxed">시대적 소명인 검찰개혁을 흔들림 없이 추진하고, 억울한 과거사 청산과 친일재산 환수에 앞장섰습니다.</p>
         
-        <div class="grid grid-cols-1 gap-12 py-8 md:py-12 border-t border-gray-800 group gs-fade-up transition-colors hover:bg-[#111] rounded-xl px-4 md:px-8 -mx-4 md:mx-0">
+        <div class="grid grid-cols-1 gap-16 py-8 md:py-12 border-t border-gray-800 group gs-fade-up transition-colors hover:bg-[#111] rounded-2xl px-4 md:px-8 -mx-4 md:mx-0">
             <div>
-                <h4 class="text-xl md:text-2xl font-semibold text-gray-300 group-hover:text-white transition-colors mb-6">1. 국민을 위한 검찰로의 변화</h4>
-                <ul class="space-y-4 text-base md:text-lg text-gray-400 group-hover:text-gray-200 transition-colors">
-                    <li class="flex items-start gap-3"><span class="text-gray-600 mt-1">―</span> <span>정부조직법 통과를 통한 검찰청 조직 전면 개편</span></li>
-                    <li class="flex items-start gap-3"><span class="text-gray-600 mt-1">―</span> <span>비대해진 검찰 직접 수사권 대폭 축소 및 정상화 (1,395개 → 457개 법안으로 제한)</span></li>
-                    <li class="flex items-start gap-3"><span class="text-gray-600 mt-1">―</span> <span>검찰 특수활동비 국회 공개 확대 및 시민단체 정보공개소송 상소 포기로 투명성 제고</span></li>
-                    <li class="flex items-start gap-3"><span class="text-gray-600 mt-1">―</span> <span>공소 유지 목적의 무더기 검사 파견을 제한하여 수사-기소 분리 원칙 확립</span></li>
-                    <li class="flex items-start gap-3"><span class="text-gray-600 mt-1">―</span> <span>관봉권 띠지 폐기 사건, 쿠팡 외압 의혹 사건 등에 대한 상설특검 전격 결정</span></li>
+                <h4 class="text-2xl md:text-3xl font-bold text-gray-200 group-hover:text-white transition-colors mb-8">1. 국민을 위한 검찰로의 변화</h4>
+                <ul class="space-y-6 text-lg md:text-xl text-gray-400 group-hover:text-gray-200 transition-colors leading-relaxed tracking-tight">
+                    <li class="flex items-start gap-4"><span class="text-gray-600 mt-1">―</span> <span>정부조직법 통과를 통한 검찰청 조직 전면 개편</span></li>
+                    <li class="flex items-start gap-4"><span class="text-gray-600 mt-1">―</span> <span>비대해진 검찰 직접 수사권 대폭 축소 및 정상화 (1,395개 → 457개 법안으로 제한)</span></li>
+                    <li class="flex items-start gap-4"><span class="text-gray-600 mt-1">―</span> <span>검찰 특수활동비 국회 공개 확대 및 시민단체 정보공개소송 상소 포기로 투명성 제고</span></li>
+                    <li class="flex items-start gap-4"><span class="text-gray-600 mt-1">―</span> <span>공소 유지 목적의 무더기 검사 파견을 제한하여 수사-기소 분리 원칙 확립</span></li>
+                    <li class="flex items-start gap-4"><span class="text-gray-600 mt-1">―</span> <span>관봉권 띠지 폐기 사건, 쿠팡 외압 의혹 사건 등에 대한 상설특검 전격 결정</span></li>
                 </ul>
             </div>
             
-            <div class="border-t border-gray-800/50 pt-8 mt-2">
-                <h4 class="text-xl md:text-2xl font-semibold text-gray-300 group-hover:text-white transition-colors mb-6">2. 국가폭력 과거사 청산과 피해자 권리 회복</h4>
-                <ul class="space-y-4 text-base md:text-lg text-gray-400 group-hover:text-gray-200 transition-colors">
-                    <li class="flex items-start gap-3"><span class="text-gray-600 mt-1">―</span> <span>형제복지원, 선감학원, 삼청교육대, 여순사건 등 국가폭력 863건(3,587명)에 대한 국가 상소 일괄 취하 및 포기</span></li>
-                    <li class="flex items-start gap-3"><span class="text-gray-600 mt-1">―</span> <span>과거사의 온전한 해결과 실질적 배상을 위한 예비비 2,457억 원 전액 확보</span></li>
-                    <li class="flex items-start gap-3"><span class="text-gray-600 mt-1">―</span> <span>진실규명 결정이 내려진 과거사 국가배상소송에서 부당한 소멸시효 항변 원칙적 배제</span></li>
-                    <li class="flex items-start gap-3"><span class="text-gray-600 mt-1">―</span> <span>61년 만의 '성폭력 혀 절단' 최말자씨 재심 사건 무죄 구형 및 항소 포기</span></li>
-                    <li class="flex items-start gap-3"><span class="text-gray-600 mt-1">―</span> <span>제주4·3 사건 직권재심을 통해 2,208명 무죄 확정 및 과거 기소유예 사건 전면 재검토</span></li>
-                    <li class="flex items-start gap-3"><span class="text-gray-600 mt-1">―</span> <span>법무행정 역사상 최초로 법무·검찰 고위직 5·18민주묘지 참배로 과거 성찰과 쇄신 선언</span></li>
+            <div class="border-t border-gray-800/50 pt-12 mt-4">
+                <h4 class="text-2xl md:text-3xl font-bold text-gray-200 group-hover:text-white transition-colors mb-8">2. 국가폭력 과거사 청산과 피해자 권리 회복</h4>
+                <ul class="space-y-6 text-lg md:text-xl text-gray-400 group-hover:text-gray-200 transition-colors leading-relaxed tracking-tight">
+                    <li class="flex items-start gap-4"><span class="text-gray-600 mt-1">―</span> <span>형제복지원, 선감학원, 삼청교육대, 여순사건 등 국가폭력 863건(3,587명)에 대한 국가 상소 일괄 취하 및 포기</span></li>
+                    <li class="flex items-start gap-4"><span class="text-gray-600 mt-1">―</span> <span>과거사의 온전한 해결과 실질적 배상을 위한 예비비 2,457억 원 전액 확보</span></li>
+                    <li class="flex items-start gap-4"><span class="text-gray-600 mt-1">―</span> <span>진실규명 결정이 내려진 과거사 국가배상소송에서 부당한 소멸시효 항변 원칙적 배제</span></li>
+                    <li class="flex items-start gap-4"><span class="text-gray-600 mt-1">―</span> <span>61년 만의 '성폭력 혀 절단' 최말자씨 재심 사건 무죄 구형 및 항소 포기</span></li>
+                    <li class="flex items-start gap-4"><span class="text-gray-600 mt-1">―</span> <span>제주4·3 사건 직권재심을 통해 2,208명 무죄 확정 및 과거 기소유예 사건 전면 재검토</span></li>
+                    <li class="flex items-start gap-4"><span class="text-gray-600 mt-1">―</span> <span>법무행정 역사상 최초로 법무·검찰 고위직 5·18민주묘지 참배로 과거 성찰과 쇄신 선언</span></li>
                 </ul>
             </div>
 
-            <div class="border-t border-gray-800/50 pt-8 mt-2">
-                <h4 class="text-xl md:text-2xl font-semibold text-gray-300 group-hover:text-white transition-colors mb-6">3. 불의한 친일재산 환수로 세우는 역사 정의</h4>
-                <ul class="space-y-4 text-base md:text-lg text-gray-400 group-hover:text-gray-200 transition-colors">
-                    <li class="flex items-start gap-3">
+            <div class="border-t border-gray-800/50 pt-12 mt-4">
+                <h4 class="text-2xl md:text-3xl font-bold text-gray-200 group-hover:text-white transition-colors mb-8">3. 불의한 친일재산 환수로 세우는 역사 정의</h4>
+                <ul class="space-y-6 text-lg md:text-xl text-gray-400 group-hover:text-gray-200 transition-colors leading-relaxed tracking-tight">
+                    <li class="flex items-start gap-4">
                         <span class="text-gray-600 mt-1">―</span> 
                         <div class="flex flex-col">
                             <div>
@@ -448,86 +477,86 @@
                             </div>
                         </div>
                     </li>
-                    <li class="flex items-start gap-3"><span class="text-gray-600 mt-1">―</span> <span>16년 만에 '친일반민족행위자 재산조사위원회' 부활 및 법무부 내 설립준비단 즉각 설치</span></li>
-                    <li class="flex items-start gap-3"><span class="text-gray-600 mt-1">―</span> <span>이해승 후손 상대 친일재산 매각대금 78억 원 반환 청구 소송 제기</span></li>
-                    <li class="flex items-start gap-3"><span class="text-gray-600 mt-1">―</span> <span>친일행위자 후손 상대 친일재산 반환소송 승소 (26.4.24) 및 은닉 토지 국가 귀속 지속 추진</span></li>
+                    <li class="flex items-start gap-4"><span class="text-gray-600 mt-1">―</span> <span>16년 만에 '친일반민족행위자 재산조사위원회' 부활 및 법무부 내 설립준비단 즉각 설치</span></li>
+                    <li class="flex items-start gap-4"><span class="text-gray-600 mt-1">―</span> <span>이해승 후손 상대 친일재산 매각대금 78억 원 반환 청구 소송 제기</span></li>
+                    <li class="flex items-start gap-4"><span class="text-gray-600 mt-1">―</span> <span>친일행위자 후손 상대 친일재산 반환소송 승소 (26.4.24) 및 은닉 토지 국가 귀속 지속 추진</span></li>
                 </ul>
             </div>
         </div>
     </section>
 
     <!-- 카테고리 03: 국익·이민 -->
-    <section id="cat3" class="py-16 md:py-32 px-6 md:px-12 w-full max-w-7xl mx-auto border-t border-gray-800">
-        <h2 class="text-xs md:text-sm tracking-[0.2em] text-blue-500 uppercase mb-3 gs-fade-up">세 번째 성과</h2>
-        <h3 class="text-3xl md:text-5xl font-bold mb-6 md:mb-12 tracking-tight gs-fade-up leading-tight">국익 수호 및<br class="md:hidden"> 능동적 이민정책</h3>
-        <p class="text-gray-400 text-base md:text-lg mb-12 md:mb-16 gs-fade-up">국제 분쟁에서 국익을 방어하고, 국가 성장과 지역 활력을 뒷받침하는 유연한 출입국 정책을 세웠습니다.</p>
+    <section id="cat3" class="py-24 md:py-32 px-6 md:px-12 w-full max-w-7xl mx-auto border-t border-gray-800">
+        <h2 class="text-sm tracking-[0.2em] text-blue-500 uppercase mb-3 gs-fade-up font-semibold">세 번째 성과</h2>
+        <h3 class="text-4xl md:text-6xl font-bold mb-8 md:mb-16 tracking-tight gs-fade-up leading-tight">국익 수호 및<br class="md:hidden"> 능동적 이민정책</h3>
+        <p class="text-gray-400 text-lg md:text-xl mb-12 md:mb-16 gs-fade-up leading-relaxed">국제 분쟁에서 국익을 방어하고, 국가 성장과 지역 활력을 뒷받침하는 유연한 출입국 정책을 세웠습니다.</p>
         
-        <div class="grid grid-cols-1 gap-12 py-8 md:py-12 border-t border-gray-800 group gs-fade-up transition-colors hover:bg-[#111] rounded-xl px-4 md:px-8 -mx-4 md:mx-0">
+        <div class="grid grid-cols-1 gap-16 py-8 md:py-12 border-t border-gray-800 group gs-fade-up transition-colors hover:bg-[#111] rounded-2xl px-4 md:px-8 -mx-4 md:mx-0">
             <div>
-                <h4 class="text-xl md:text-2xl font-semibold text-gray-300 group-hover:text-white transition-colors mb-6">1. 대한민국의 국익을 지키는 '정부로펌'</h4>
-                <ul class="space-y-6 text-base md:text-lg group-hover:text-gray-200 transition-colors">
-                    <li class="flex items-start gap-3">
-                        <span class="text-blue-500 mt-1 font-bold">■</span> 
+                <h4 class="text-2xl md:text-3xl font-bold text-gray-200 group-hover:text-white transition-colors mb-8">1. 대한민국의 국익을 지키는 '정부로펌'</h4>
+                <ul class="space-y-8 text-lg md:text-xl group-hover:text-gray-100 transition-colors leading-relaxed tracking-tight">
+                    <li class="flex items-start gap-4">
+                        <span class="text-blue-500 mt-1 font-bold text-xl">■</span> 
                         <div>
-                            <span class="text-white font-medium">국제투자분쟁(ISDS) 3연속 완승 및 배상금어 방어</span>
-                            <p class="text-sm mt-1.5 text-gray-400">론스타 4,000억 원 배상책임 소멸 및 엘리엇 중재판정 취소 승소. 쉰들러 3,250억 원 전부 승소. 소송비용 총 170억 원 전액 환수</p>
+                            <span class="text-white font-semibold">국제투자분쟁(ISDS) 3연속 완승 및 배상금 방어</span>
+                            <p class="mt-2 text-gray-400 leading-loose">론스타 4,000억 원 배상책임 소멸 및 엘리엇 중재판정 취소 승소. 쉰들러 3,250억 원 전부 승소. 소송비용 총 170억 원 전액 환수</p>
                         </div>
                     </li>
-                    <li class="flex items-start gap-3">
-                        <span class="text-blue-500 mt-1 font-bold">■</span> 
+                    <li class="flex items-start gap-4">
+                        <span class="text-blue-500 mt-1 font-bold text-xl">■</span> 
                         <div>
-                            <span class="text-white font-medium">정부로펌 기능 고도화 및 해외진출기업 법률지원</span>
-                            <p class="text-sm mt-1.5 text-gray-400">호르무즈 해협 봉쇄 등 정세 변화 쟁점 안내 및 베트남, 중국 등 9개국 진출을 위한 법률길라잡이 14권 발간으로 기업 지원 강화</p>
+                            <span class="text-white font-semibold">정부로펌 기능 고도화 및 해외진출기업 법률지원</span>
+                            <p class="mt-2 text-gray-400 leading-loose">호르무즈 해협 봉쇄 등 정세 변화 쟁점 안내 및 베트남, 중국 등 9개국 진출을 위한 법률길라잡이 14권 발간으로 기업 지원 강화</p>
                         </div>
                     </li>
                 </ul>
             </div>
             
-            <div class="border-t border-gray-800/50 pt-8 mt-2">
-                <h4 class="text-xl md:text-2xl font-semibold text-gray-300 group-hover:text-white transition-colors mb-6">2. 민생경제에 활력을 더하는 출입국·외국인 정책</h4>
-                <ul class="space-y-4 text-base md:text-lg text-gray-400 group-hover:text-gray-200 transition-colors">
-                    <li class="flex items-start gap-3"><span class="text-gray-600 mt-1">―</span> <span>국가 성장과 국경 관리를 포괄하는 「2030 이민정책 미래전략」 마스터플랜 발표</span></li>
-                    <li class="flex items-start gap-3"><span class="text-gray-600 mt-1">―</span> <span>K-STAR 비자 및 톱티어 비자 확대를 통해 글로벌 우수 인재와 기업인 유치 간소화</span></li>
-                    <li class="flex items-start gap-3"><span class="text-gray-600 mt-1">―</span> <span>농어촌 계절근로자 배정 대폭 확대 및 외국인 요양보호사 양성대학 지정으로 지역 인력난 즉각 해소</span></li>
-                    <li class="flex items-start gap-3"><span class="text-gray-600 mt-1">―</span> <span>의료관광 유치기관 확대 및 크루즈 전용 자동심사대 설치로 K-관광과 지역경제 활성화 지원</span></li>
-                    <li class="flex items-start gap-3"><span class="text-gray-600 mt-1">―</span> <span>출입국본부 내 「이민자 권익보호 TF」 상설화. 임금체불 등 악덕 사업주 초청 제한 강화 및 외국인 노동자 인권 보호</span></li>
+            <div class="border-t border-gray-800/50 pt-12 mt-4">
+                <h4 class="text-2xl md:text-3xl font-bold text-gray-200 group-hover:text-white transition-colors mb-8">2. 민생경제에 활력을 더하는 출입국·외국인 정책</h4>
+                <ul class="space-y-6 text-lg md:text-xl text-gray-400 group-hover:text-gray-200 transition-colors leading-relaxed tracking-tight">
+                    <li class="flex items-start gap-4"><span class="text-gray-600 mt-1">―</span> <span>국가 성장과 국경 관리를 포괄하는 「2030 이민정책 미래전략」 마스터플랜 발표</span></li>
+                    <li class="flex items-start gap-4"><span class="text-gray-600 mt-1">―</span> <span>K-STAR 비자 및 톱티어 비자 확대를 통해 글로벌 우수 인재와 기업인 유치 간소화</span></li>
+                    <li class="flex items-start gap-4"><span class="text-gray-600 mt-1">―</span> <span>농어촌 계절근로자 배정 대폭 확대 및 외국인 요양보호사 양성대학 지정으로 지역 인력난 즉각 해소</span></li>
+                    <li class="flex items-start gap-4"><span class="text-gray-600 mt-1">―</span> <span>의료관광 유치기관 확대 및 크루즈 전용 자동심사대 설치로 K-관광과 지역경제 활성화 지원</span></li>
+                    <li class="flex items-start gap-4"><span class="text-gray-600 mt-1">―</span> <span>출입국본부 내 「이민자 권익보호 TF」 상설화. 임금체불 등 악덕 사업주 초청 제한 강화 및 외국인 노동자 인권 보호</span></li>
                 </ul>
             </div>
         </div>
     </section>
 
     <!-- 카테고리 04: 교정 혁신 -->
-    <section id="cat4" class="py-16 md:py-32 px-6 md:px-12 w-full max-w-7xl mx-auto border-t border-gray-800">
-        <h2 class="text-xs md:text-sm tracking-[0.2em] text-blue-500 uppercase mb-3 gs-fade-up">네 번째 성과</h2>
-        <h3 class="text-3xl md:text-5xl font-bold mb-6 md:mb-12 tracking-tight gs-fade-up leading-tight">교정혁신으로<br class="md:hidden"> 국민안전 강화</h3>
-        <p class="text-gray-400 text-base md:text-lg mb-12 md:mb-16 gs-fade-up">단순 '수용' 중심에서 '치료·재활' 중심으로 패러다임을 전환하여 재범을 낮추고 국민의 안전을 지켰습니다.</p>
+    <section id="cat4" class="py-24 md:py-32 px-6 md:px-12 w-full max-w-7xl mx-auto border-t border-gray-800">
+        <h2 class="text-sm tracking-[0.2em] text-blue-500 uppercase mb-3 gs-fade-up font-semibold">네 번째 성과</h2>
+        <h3 class="text-4xl md:text-6xl font-bold mb-8 md:mb-16 tracking-tight gs-fade-up leading-tight">교정혁신으로<br class="md:hidden"> 국민안전 강화</h3>
+        <p class="text-gray-400 text-lg md:text-xl mb-12 md:mb-16 gs-fade-up leading-relaxed">단순 '수용' 중심에서 '치료·재활' 중심으로 패러다임을 전환하여 재범을 낮추고 국민의 안전을 지켰습니다.</p>
         
-        <div class="grid grid-cols-1 gap-12 py-8 md:py-12 border-t border-gray-800 group gs-fade-up transition-colors hover:bg-[#111] rounded-xl px-4 md:px-8 -mx-4 md:mx-0">
+        <div class="grid grid-cols-1 gap-16 py-8 md:py-12 border-t border-gray-800 group gs-fade-up transition-colors hover:bg-[#111] rounded-2xl px-4 md:px-8 -mx-4 md:mx-0">
             <div>
-                <h4 class="text-xl md:text-2xl font-semibold text-gray-300 group-hover:text-white transition-colors mb-6">'회복과 예방' 중심의 교정 패러다임 완성</h4>
-                <ul class="space-y-6 text-base md:text-lg group-hover:text-gray-200 transition-colors">
-                    <li class="flex items-start gap-3">
-                        <span class="text-blue-500 mt-1 font-bold">■</span> 
+                <h4 class="text-2xl md:text-3xl font-bold text-gray-200 group-hover:text-white transition-colors mb-8">'회복과 예방' 중심의 교정 패러다임 완성</h4>
+                <ul class="space-y-8 text-lg md:text-xl group-hover:text-gray-100 transition-colors leading-relaxed tracking-tight">
+                    <li class="flex items-start gap-4">
+                        <span class="text-blue-500 mt-1 font-bold text-xl">■</span> 
                         <div>
-                            <span class="text-white font-medium">교정미래혁신단 출범 및 기본계획 수립</span>
-                            <p class="text-sm mt-1.5 text-gray-400">과밀수용 해소 및 AI 기반 첨단교정을 위한 전담기구를 출범하고 「제2차 형의 집행 및 수용자 처우 기본계획(2026~2030)」 확정</p>
+                            <span class="text-white font-semibold">교정미래혁신단 출범 및 기본계획 수립</span>
+                            <p class="mt-2 text-gray-400 leading-loose">과밀수용 해소 및 AI 기반 첨단교정을 위한 전담기구를 출범하고 「제2차 형의 집행 및 수용자 처우 기본계획(2026~2030)」 확정</p>
                         </div>
                     </li>
-                    <li class="flex items-start gap-3">
-                        <span class="text-blue-500 mt-1 font-bold">■</span> 
+                    <li class="flex items-start gap-4">
+                        <span class="text-blue-500 mt-1 font-bold text-xl">■</span> 
                         <div class="flex flex-col">
                             <div>
-                                <span class="text-white font-medium">재사회화 및 인권 보호 체계 강화</span>
+                                <span class="text-white font-semibold">재사회화 및 인권 보호 체계 강화</span>
                                 <span class="badge-law">민생·안전 10대 법안</span>
                             </div>
-                            <p class="text-sm mt-1.5 text-gray-400">수용자 미성년 자녀 보호 강화를 위한 형집행법 개정 및 민영 소망교도소 회복적 사법 프로그램 현장 점검 실시</p>
+                            <p class="mt-2 text-gray-400 leading-loose">수용자 미성년 자녀 보호 강화를 위한 형집행법 개정 및 민영 소망교도소 회복적 사법 프로그램 현장 점검 실시</p>
                         </div>
                     </li>
-                    <li class="flex items-start gap-3">
-                        <span class="text-blue-500 mt-1 font-bold">■</span> 
+                    <li class="flex items-start gap-4">
+                        <span class="text-blue-500 mt-1 font-bold text-xl">■</span> 
                         <div>
-                            <span class="text-white font-medium">교정공무원 권익 보호 및 현장 소통</span>
-                            <p class="text-sm mt-1.5 text-gray-400">정당한 직무수행 교도관 보호체계 마련, 국립묘지 안장 확대. 현장 진단 정례화 및 교정행정 가치 확산(영화 '만남의 집' 시사회 등)</p>
+                            <span class="text-white font-semibold">교정공무원 권익 보호 및 현장 소통</span>
+                            <p class="mt-2 text-gray-400 leading-loose">정당한 직무수행 교도관 보호체계 마련, 국립묘지 안장 확대. 현장 진단 정례화 및 교정행정 가치 확산(영화 '만남의 집' 시사회 등)</p>
                         </div>
                     </li>
                 </ul>
@@ -536,68 +565,86 @@
     </section>
 
     <!-- 카테고리 05: 소통 참여 -->
-    <section id="cat5" class="py-16 md:py-32 px-6 md:px-12 w-full max-w-7xl mx-auto border-t border-gray-800 text-center">
-        <h2 class="text-xs md:text-sm tracking-[0.2em] text-blue-500 uppercase mb-3 gs-fade-up">다섯 번째 성과</h2>
-        <h3 class="text-3xl md:text-5xl font-bold mb-8 md:mb-12 tracking-tight gs-fade-up leading-tight">국민과 함께 만드는<br class="md:hidden"> 소통 법무행정</h3>
-        <p class="text-gray-400 text-base md:text-lg mb-12 md:mb-16 gs-fade-up">국민의 목소리를 정책에 직접 담고, 경청과 소통으로 투명한 국정운영을 실천했습니다.</p>
+    <section id="cat5" class="py-24 md:py-32 px-6 md:px-12 w-full max-w-7xl mx-auto border-t border-gray-800 text-center">
+        <h2 class="text-sm tracking-[0.2em] text-blue-500 uppercase mb-3 gs-fade-up font-semibold">다섯 번째 성과</h2>
+        <h3 class="text-4xl md:text-6xl font-bold mb-8 md:mb-12 tracking-tight gs-fade-up leading-tight">국민과 함께 만드는<br class="md:hidden"> 소통 법무행정</h3>
+        <p class="text-gray-400 text-lg md:text-xl mb-16 md:mb-20 gs-fade-up leading-relaxed">국민의 목소리를 정책에 직접 담고, 경청과 소통으로 투명한 국정운영을 실천했습니다.</p>
         
-        <div class="text-left w-full max-w-4xl mx-auto mb-16 border-t border-gray-800">
+        <div class="text-left w-full max-w-5xl mx-auto mb-20 border-t border-gray-800">
             <div class="accordion-item border-b border-gray-800 gs-fade-up">
-                <button class="accordion-header w-full py-6 flex justify-between items-center text-left focus:outline-none group cursor-pointer">
-                    <span class="text-lg md:text-xl font-semibold text-gray-300 group-hover:text-white transition-colors">청년 참여 및 국민 정책 소통 확대</span>
-                    <span class="accordion-icon text-gray-500 text-2xl font-light group-hover:text-white transition-colors">+</span>
+                <button class="accordion-header w-full py-8 flex justify-between items-center text-left focus:outline-none group cursor-pointer">
+                    <span class="text-xl md:text-2xl font-bold text-gray-300 group-hover:text-white transition-colors">청년 참여 및 국민 정책 소통 확대</span>
+                    <span class="accordion-icon text-gray-500 text-3xl font-light group-hover:text-white transition-colors">+</span>
                 </button>
                 <div class="accordion-content overflow-hidden h-0 transition-all duration-500 ease-in-out">
-                    <div class="pb-8 text-gray-400 leading-relaxed text-base md:text-lg pl-2 md:pl-4">
-                        <ul class="space-y-3 mt-4">
-                            <li class="flex items-start gap-2"><span class="text-blue-500 mt-1 text-sm">■</span> <span><strong>제3기 2030청년자문단 출범:</strong> 대학생·교사 등 다양한 분야 청년 26명이 직접 정책을 점검하는 창구 운영</span></li>
-                            <li class="flex items-start gap-2"><span class="text-blue-500 mt-1 text-sm">■</span> <span><strong>저스티스 서포터스 19기 운영:</strong> 전국 대학생 35개팀 161명이 청소년 도박 예방 및 헌법 가치 확산 등 활동 전개</span></li>
+                    <div class="pb-10 text-gray-400 leading-loose text-lg md:text-xl pl-2 md:pl-4">
+                        <ul class="space-y-4 mt-4">
+                            <li class="flex items-start gap-3"><span class="text-blue-500 mt-1 text-base">■</span> <span><strong>제3기 2030청년자문단 출범:</strong> 대학생·교사 등 다양한 분야 청년 26명이 직접 정책을 점검하는 창구 운영</span></li>
+                            <li class="flex items-start gap-3"><span class="text-blue-500 mt-1 text-base">■</span> <span><strong>저스티스 서포터스 19기 운영:</strong> 전국 대학생 35개팀 161명이 청소년 도박 예방 및 헌법 가치 확산 등 활동 전개</span></li>
                         </ul>
                     </div>
                 </div>
             </div>
             
             <div class="accordion-item border-b border-gray-800 gs-fade-up">
-                <button class="accordion-header w-full py-6 flex justify-between items-center text-left focus:outline-none group cursor-pointer">
-                    <span class="text-lg md:text-xl font-semibold text-gray-300 group-hover:text-white transition-colors">투명한 국정운영 및 수평적 조직문화</span>
-                    <span class="accordion-icon text-gray-500 text-2xl font-light group-hover:text-white transition-colors">+</span>
+                <button class="accordion-header w-full py-8 flex justify-between items-center text-left focus:outline-none group cursor-pointer">
+                    <span class="text-xl md:text-2xl font-bold text-gray-300 group-hover:text-white transition-colors">투명한 국정운영 및 수평적 조직문화</span>
+                    <span class="accordion-icon text-gray-500 text-3xl font-light group-hover:text-white transition-colors">+</span>
                 </button>
                 <div class="accordion-content overflow-hidden h-0 transition-all duration-500 ease-in-out">
-                    <div class="pb-8 text-gray-400 leading-relaxed text-base md:text-lg pl-2 md:pl-4">
-                        <ul class="space-y-3 mt-4">
-                            <li class="flex items-start gap-2"><span class="text-blue-500 mt-1 text-sm">■</span> <span><strong>월간업무회의 국민 전면 공개:</strong> 유튜브 생중계로 정책 결정 과정을 공개하여 국민주권정부 실현</span></li>
-                            <li class="flex items-start gap-2"><span class="text-blue-500 mt-1 text-sm">■</span> <span><strong>장관과의 토크콘서트 개최:</strong> 혁신·신뢰·소통을 주제로 직원들과 자유로운 현장 중심 대화</span></li>
-                            <li class="flex items-start gap-2"><span class="text-blue-500 mt-1 text-sm">■</span> <span><strong>일잘러·효율러 골든벨:</strong> 적극행정과 업무혁신 우수사례 상시 발굴 포상 및 조직문화 쇄신</span></li>
-                            <li class="flex items-start gap-2"><span class="text-blue-500 mt-1 text-sm">■</span> <span><strong>현장 중심 소통 강화:</strong> 확대간부회의를 통해 현장의 의견을 정책에 즉각 반영하는 시스템 구축</span></li>
+                    <div class="pb-10 text-gray-400 leading-loose text-lg md:text-xl pl-2 md:pl-4">
+                        <ul class="space-y-4 mt-4">
+                            <li class="flex items-start gap-3"><span class="text-blue-500 mt-1 text-base">■</span> <span><strong>월간업무회의 국민 전면 공개:</strong> 유튜브 생중계로 정책 결정 과정을 공개하여 국민주권정부 실현</span></li>
+                            <li class="flex items-start gap-3"><span class="text-blue-500 mt-1 text-base">■</span> <span><strong>장관과의 토크콘서트 개최:</strong> 혁신·신뢰·소통을 주제로 직원들과 자유로운 현장 중심 대화</span></li>
+                            <li class="flex items-start gap-3"><span class="text-blue-500 mt-1 text-base">■</span> <span><strong>일잘러·효율러 골든벨:</strong> 적극행정과 업무혁신 우수사례 상시 발굴 포상 및 조직문화 쇄신</span></li>
+                            <li class="flex items-start gap-3"><span class="text-blue-500 mt-1 text-base">■</span> <span><strong>현장 중심 소통 강화:</strong> 확대간부회의를 통해 현장의 의견을 정책에 즉각 반영하는 시스템 구축</span></li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
+
+        <!-- 소통 연결 카드 및 사진 아카이브 링크 추가 (요청사항 반영) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 gs-fade-up max-w-5xl mx-auto text-left">
+            <a href="#message-board" class="block p-10 md:p-12 bg-[#111] border border-gray-800 hover:border-gray-500 rounded-3xl transition-all duration-300 group">
+                <h4 class="text-2xl md:text-3xl font-bold mb-4 text-white">장관에게 바란다</h4>
+                <p class="text-gray-400 text-lg md:text-xl leading-relaxed">시민 여러분의 소중한 의견과 응원 메시지, 정책 제안을 자유롭게 남겨주세요.</p>
+                <div class="mt-10 flex items-center text-blue-400 font-medium tracking-wide text-lg">
+                    게시판 바로가기 <span class="ml-2 group-hover:translate-x-2 transition-transform">→</span>
+                </div>
+            </a>
+            <a href="#photo-archive" class="block p-10 md:p-12 bg-[#111] border border-gray-800 hover:border-gray-500 rounded-3xl transition-all duration-300 group">
+                <h4 class="text-2xl md:text-3xl font-bold mb-4 text-white">아카이브 자료실</h4>
+                <p class="text-gray-400 text-lg md:text-xl leading-relaxed">지난 1년간의 치열했던 현장 기록, 활동 사진 및 영상 자료를 모두 확인하실 수 있습니다.</p>
+                <div class="mt-10 flex items-center text-blue-400 font-medium tracking-wide text-lg">
+                    사진 아카이브 바로가기 <span class="ml-2 group-hover:translate-x-2 transition-transform">→</span>
+                </div>
+            </a>
+        </div>
     </section>
 
-    <!-- Footer (SNS 컬러 로고 적용 및 더미 텍스트 제거) -->
+    <!-- Footer -->
     <footer id="contact" class="bg-black py-16 md:py-20 px-6 md:px-12 border-t border-gray-900 text-gray-500 text-sm pb-24 md:pb-8">
         <div class="w-full max-w-7xl mx-auto flex flex-col lg:flex-row justify-between items-start lg:items-end gap-10">
             <div>
                 <h3 class="text-white text-xl md:text-2xl font-bold mb-4 md:mb-6 tracking-tight">정성호 법무부장관 취임 1주년 기록</h3>
-                <p class="mb-2 text-sm md:text-base leading-relaxed max-w-lg">국민의 곁에서, 국민의 삶을 바꾸기 위해 달려온 지난 1년.<br>정의롭고 공정한 대한민국을 향한 법무행정의 여정은 앞으로도 계속됩니다.</p>
+                <p class="mb-2 text-sm md:text-base leading-relaxed max-w-lg text-gray-400">국민의 곁에서, 국민의 삶을 바꾸기 위해 달려온 지난 1년.<br>정의롭고 공정한 대한민국을 향한 법무행정의 여정은 앞으로도 계속됩니다.</p>
             </div>
             
             <div class="flex flex-wrap gap-3 mt-4 lg:mt-0">
-                <a href="#" class="flex items-center gap-2 px-4 py-2.5 bg-[#03C75A] text-white rounded-full text-xs font-bold hover:bg-opacity-80 transition-all shadow-lg shadow-[#03C75A]/20">
+                <a href="#" class="flex items-center gap-2 px-5 py-3 bg-[#03C75A] text-white rounded-full text-sm font-bold hover:bg-opacity-80 transition-all shadow-lg shadow-[#03C75A]/20">
                     <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M16.273 12.845L7.376 0H0v24h7.727V11.155L16.624 24H24V0h-7.727v12.845z"/></svg>
                     블로그
                 </a>
-                <a href="#" class="flex items-center gap-2 px-4 py-2.5 bg-[#FF0000] text-white rounded-full text-xs font-bold hover:bg-opacity-80 transition-all shadow-lg shadow-[#FF0000]/20">
+                <a href="#" class="flex items-center gap-2 px-5 py-3 bg-[#FF0000] text-white rounded-full text-sm font-bold hover:bg-opacity-80 transition-all shadow-lg shadow-[#FF0000]/20">
                     <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
                     유튜브
                 </a>
-                <a href="#" class="flex items-center gap-2 px-4 py-2.5 bg-gradient-to-tr from-[#FFDC80] via-[#F56040] to-[#C13584] text-white rounded-full text-xs font-bold hover:opacity-80 transition-all shadow-lg shadow-[#C13584]/20">
+                <a href="#" class="flex items-center gap-2 px-5 py-3 bg-gradient-to-tr from-[#FFDC80] via-[#F56040] to-[#C13584] text-white rounded-full text-sm font-bold hover:opacity-80 transition-all shadow-lg shadow-[#C13584]/20">
                     <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
                     인스타그램
                 </a>
-                <a href="#" class="flex items-center gap-2 px-4 py-2.5 bg-[#1877F2] text-white rounded-full text-xs font-bold hover:bg-opacity-80 transition-all shadow-lg shadow-[#1877F2]/20">
+                <a href="#" class="flex items-center gap-2 px-5 py-3 bg-[#1877F2] text-white rounded-full text-sm font-bold hover:bg-opacity-80 transition-all shadow-lg shadow-[#1877F2]/20">
                     <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
                     페이스북
                 </a>
@@ -655,18 +702,48 @@
 
             mobileMenuBtn.addEventListener('click', toggleMenu);
             
-            // 모든 네비게이션 아이템(PC, 모바일 햄버거, 모바일 하단 Dock)에 부드러운 스크롤 적용
+            // 네비게이션 아이템 부드러운 스크롤 (PC GNB, Mobile Hamburger, Mobile Dock 모두 호환)
             const allNavItems = document.querySelectorAll('.nav-item, .mobile-nav-item, .dock-link');
             allNavItems.forEach(item => {
                 item.addEventListener('click', (e) => {
-                    e.preventDefault();
                     const targetId = item.getAttribute('href');
-                    if(isMenuOpen) toggleMenu();
-                    // 헤더 높이만큼 덜 내려가도록 offset 설정 (-80)
-                    lenis.scrollTo(targetId, { offset: -80, duration: 1.5 });
+                    if(targetId.startsWith('#')) {
+                        e.preventDefault();
+                        if(isMenuOpen) toggleMenu(); // 모바일 햄버거 메뉴 열려있으면 닫기
+                        // 헤더 높이만큼 덜 내려가도록 offset 설정 (-80)
+                        lenis.scrollTo(targetId, { offset: -80, duration: 1.5 });
+                    }
                 });
             });
 
+            // 3. 모바일 하단 플로팅 Dock 토글 스크립트
+            const dockToggleBtn = document.getElementById('dock-toggle-btn');
+            const dockMenu = document.getElementById('dock-menu');
+            const dockToggleIcon = document.getElementById('dock-toggle-icon');
+            let isDockOpen = false;
+
+            if(dockToggleBtn) {
+                dockToggleBtn.addEventListener('click', () => {
+                    isDockOpen = !isDockOpen;
+                    if(isDockOpen) {
+                        // Dock 열기
+                        dockMenu.classList.remove('w-0', 'opacity-0', 'h-0', 'pointer-events-none');
+                        dockMenu.classList.add('w-full', 'opacity-100', 'h-auto', 'pointer-events-auto');
+                        dockToggleIcon.style.transform = 'rotate(45deg)'; // X 모양으로 회전
+                        dockToggleBtn.classList.replace('bg-blue-600', 'bg-gray-700');
+                        dockToggleBtn.classList.replace('hover:bg-blue-500', 'hover:bg-gray-600');
+                    } else {
+                        // Dock 닫기
+                        dockMenu.classList.remove('w-full', 'opacity-100', 'h-auto', 'pointer-events-auto');
+                        dockMenu.classList.add('w-0', 'opacity-0', 'h-0', 'pointer-events-none');
+                        dockToggleIcon.style.transform = 'rotate(0deg)'; // 원래 + 모양
+                        dockToggleBtn.classList.replace('bg-gray-700', 'bg-blue-600');
+                        dockToggleBtn.classList.replace('hover:bg-gray-600', 'hover:bg-blue-500');
+                    }
+                });
+            }
+
+            // Hero Scroll Down Button
             const scrollBtn = document.getElementById('scroll-down-btn');
             if(scrollBtn) {
                 scrollBtn.addEventListener('click', () => {
@@ -674,7 +751,7 @@
                 });
             }
 
-            // 3. Hero Text 애니메이션
+            // 4. Hero Text 애니메이션
             gsap.to(".text-reveal", {
                 y: "0%", ease: "power4.out", duration: 1.5, stagger: 0.2, delay: 0.2
             });
@@ -683,7 +760,7 @@
                 opacity: 0, y: 20, ease: "power2.out", duration: 1, delay: 1
             });
 
-            // 4. Parallax Images
+            // 5. Parallax Images
             setTimeout(() => {
                 gsap.utils.toArray('.parallax-img').forEach(img => {
                     gsap.to(img, {
@@ -696,7 +773,7 @@
                 ScrollTrigger.refresh();
             }, 100);
 
-            // 5. 아코디언 메뉴
+            // 6. 아코디언 메뉴
             const accordionHeaders = document.querySelectorAll('.accordion-header');
             accordionHeaders.forEach(header => {
                 header.addEventListener('click', () => {
@@ -716,7 +793,7 @@
                 });
             });
 
-            // 6. 사진 더보기 
+            // 7. 사진 더보기 
             const btnLoadMore = document.getElementById('btn-load-more');
             const overlay = document.getElementById('archive-overlay');
             const extendedGrid = document.getElementById('extended-archive-grid');
@@ -730,7 +807,7 @@
                 });
             }
 
-            // 7. 통계 카운터 애니메이션 + 완료 후 Hover 추가
+            // 8. 통계 카운터 애니메이션 + 완료 후 Hover 상호작용 추가
             const counters = document.querySelectorAll('.counter');
             const speed = 200; 
 
@@ -746,6 +823,7 @@
                         requestAnimationFrame(updateCount);
                     } else {
                         counter.innerText = target;
+                        // 애니메이션 종료 시 hover 효과 활성화를 위한 클래스 추가
                         counter.classList.add('counter-done');
                     }
                 };
