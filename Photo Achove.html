@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>정성호 법무부장관과 함께한 1년</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Pretendard Font -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+
+    <!-- GSAP & Lenis -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script>
+
+    <style>
+        body {
+            font-family: 'Pretendard', sans-serif;
+            background-color: #050505; 
+            color: #ffffff;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* 가로 스크롤바 숨기기 */
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        /* Masonry Layout 보정 */
+        .masonry-grid {
+            column-count: 1;
+            column-gap: 1rem;
+        }
+        @media (min-width: 640px) { .masonry-grid { column-count: 2; } }
+        @media (min-width: 1024px) { .masonry-grid { column-count: 3; } }
+        @media (min-width: 1280px) { .masonry-grid { column-count: 4; column-gap: 1.5rem; } }
+
+        .masonry-item { break-inside: avoid; margin-bottom: 1rem; }
+        @media (min-width: 1280px) { .masonry-item { margin-bottom: 1.5rem; } }
+
+        /* 필터 버튼 스타일 */
+        .year-btn, .month-btn {
+            color: #666666;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .year-btn:hover, .month-btn:hover { color: #aaaaaa; }
+        
+        .year-btn.active, .month-btn.active {
+            color: #ffffff;
+            font-weight: 700;
+        }
+        
+        /* 활성화된 연도 밑줄 포인트 */
+        .year-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: -6px; left: 0;
+            width: 100%; height: 2px;
+            background-color: #ffffff;
+        }
+
+        /* 이미지 호버 효과 및 텍스트 오버레이 */
+        .img-wrapper {
+            overflow: hidden;
+            border-radius: 0.75rem;
+            position: relative;
+            background-color: #1a1a1a;
+        }
+        .img-wrapper img {
+            transition: transform 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+            will-change: transform;
+        }
+        .masonry-item:hover .img-wrapper img {
+            transform: scale(1.08);
+        }
+        
+        /* 사진 안쪽 그라데이션 오버레이 (텍스트 가독성 확보용) */
+        .img-gradient {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0) 100%);
+            opacity: 0.8;
+            transition: opacity 0.4s ease;
+        }
+        .masonry-item:hover .img-gradient {
+            opacity: 1;
+        }
+
+        /* 사진 내부 텍스트 콘텐츠 컨테이너 */
+        .img-content {
+            position: absolute;
+            bottom: 0; left: 0; w-full;
+            padding: 1.5rem;
+            width: 100%;
+            transform: translateY(1.5rem);
+            transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .masonry-item:hover .img-content {
+            transform: translateY(0);
+        }
+        
+        /* 사진 내부 상세 설명 (호버 시 등장) */
+        .img-desc {
+            opacity: 0;
+            height: 0;
+            overflow: hidden;
+            transition: opacity 0.4s ease, height 0.4s ease;
+        }
+        .masonry-item:hover .img-desc {
+            opacity: 1;
+            height: auto;
+            margin-top: 0.5rem;
+        }
+    </style>
+</head>
+<body class="selection:bg-white selection:text-black min-h-screen flex flex-col">
+
+    <!-- Header / Nav -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-[#0a0a0a]/85 backdrop-blur-md border-b border-gray-800/60 transition-all duration-300">
+        <div class="flex justify-between items-center px-6 py-5 md:px-12">
+            <!-- Back Button & Logo -->
+            <div class="flex items-center gap-4">
+                <a href="index.html" class="text-white hover:text-gray-400 transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 19l-7-7 7-7"></path></svg>
+                </a>
+                <h1 class="text-lg md:text-xl font-bold tracking-tight uppercase">정성호 법무부장관과 함께한 1년</h1>
+            </div>
+        </div>
+
+        <!-- Filters Section -->
+        <div class="w-full flex flex-col border-t border-gray-800/60">
+            <!-- 연도 필터 -->
+            <div class="flex items-center justify-center px-4 py-4 gap-10 md:gap-16 border-b border-gray-800/60">
+                <button class="year-btn active text-lg md:text-xl tracking-widest uppercase" data-year="2025">2025</button>
+                <button class="year-btn text-lg md:text-xl tracking-widest uppercase" data-year="2026">2026</button>
+            </div>
+            
+            <!-- 월 필터 (가로 스크롤) -->
+            <div class="w-full overflow-x-auto hide-scrollbar">
+                <div class="flex items-center justify-start md:justify-center px-6 py-4 gap-6 md:gap-10 min-w-max" id="month-filters">
+                    <!-- JS에서 선택된 연도에 따라 동적 생성 -->
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Gallery Area -->
+    <main class="flex-grow pt-48 pb-24 px-4 md:px-8 max-w-[1800px] mx-auto w-full">
+        <!-- 타이틀 및 건수 -->
+        <div class="mb-8 flex flex-col md:flex-row justify-between items-start md:items-end gap-2 border-b border-gray-800 pb-4">
+            <h2 class="text-2xl md:text-4xl font-bold tracking-tight" id="current-category-title">2025. 07 기록</h2>
+            <span class="text-sm md:text-base text-gray-500 font-medium tracking-widest" id="item-count">0 ITEMS</span>
+        </div>
+
+        <!-- Masonry Grid -->
+        <div class="masonry-grid" id="gallery-grid">
+            <!-- JS에서 아이템 동적 생성 -->
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // 1. Lenis Smooth Scroll Setup
+            const lenis = new Lenis({
+                duration: 1.2,
+                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+                smooth: true,
+            });
+
+            function raf(time) {
+                lenis.raf(time);
+                requestAnimationFrame(raf);
+            }
+            requestAnimationFrame(raf);
+
+            // 2. 연도별 및 월별 데이터 구조 정의 (2025.07 ~ 2026.07)
+            const dataStructure = {
+                '2025': ['07', '08', '09', '10', '11', '12'],
+                '2026': ['01', '02', '03', '04', '05', '06', '07']
+            };
+            
+            const galleryData = {};
+            const heights = [400, 500, 600, 700]; // 안정적인 Masonry 레이아웃을 위한 높이 프리셋
+            
+            // 더미 데이터 생성 (월별 10개씩, 사진 내 설명 포함)
+            Object.keys(dataStructure).forEach(year => {
+                galleryData[year] = {};
+                dataStructure[year].forEach(month => {
+                    galleryData[year][month] = [];
+                    // 각 월별로 10장씩 생성 (요구사항 반영)
+                    for(let i = 1; i <= 10; i++) {
+                        const randomHeight = heights[Math.floor(Math.random() * heights.length)];
+                        
+                        // 안정적인 이미지 플레이스홀더 (네트워크 에러 방지)
+                        const imgSrc = `https://placehold.co/600x${randomHeight}/1a1a1a/555555?text=${year}.${month}`;
+                        
+                        galleryData[year][month].push({
+                            id: `${year}-${month}-${i}`,
+                            title: `현장 행보 기록 ${i}`,
+                            desc: `법무행정 현장 점검 및 주요 정책 추진에 대한 ${year}년 ${month}월 상세 기록입니다. 국민과 소통하며 투명한 정책을 만들어갑니다.`,
+                            img: imgSrc,
+                            height: randomHeight,
+                            date: `${year}.${month}`
+                        });
+                    }
+                });
+            });
+
+            // 3. UI 컨트롤 변수 설정
+            const yearBtns = document.querySelectorAll('.year-btn');
+            const monthContainer = document.getElementById('month-filters');
+            const galleryGrid = document.getElementById('gallery-grid');
+            const currentTitle = document.getElementById('current-category-title');
+            const countDisplay = document.getElementById('item-count');
+
+            let currentYear = '2025';
+            let currentMonth = '07'; // 2025년 기본 선택
+
+            // 월 필터 렌더링 함수
+            function renderMonthFilters(year) {
+                monthContainer.innerHTML = ''; // 기존 월 버튼 초기화
+                
+                const months = dataStructure[year];
+                
+                // 선택된 연도에 현재 월이 없다면 첫 번째 월로 강제 세팅
+                if(!months.includes(currentMonth) || year !== currentYear) {
+                    currentMonth = months[0];
+                }
+                currentYear = year;
+
+                months.forEach(month => {
+                    const btn = document.createElement('button');
+                    btn.className = `month-btn text-sm md:text-base tracking-widest uppercase whitespace-nowrap ${month === currentMonth ? 'active' : ''}`;
+                    btn.setAttribute('data-month', month);
+                    
+                    // 예: "07" -> "7th", "10" -> "10th"
+                    const displayMonth = month.startsWith('0') ? month.substring(1) : month;
+                    btn.textContent = `${displayMonth}th`; 
+                    
+                    btn.addEventListener('click', () => {
+                        // 기존 액티브 해제
+                        document.querySelectorAll('.month-btn').forEach(b => b.classList.remove('active'));
+                        btn.classList.add('active');
+                        currentMonth = month;
+                        updateGallery(); // 갤러리 갱신
+                    });
+                    
+                    monthContainer.appendChild(btn);
+                });
+            }
+
+            // 갤러리 그리드 업데이트 함수
+            function updateGallery() {
+                // 기존 아이템들 부드럽게 페이드아웃
+                gsap.to('.gs-item', {
+                    opacity: 0,
+                    y: 20,
+                    duration: 0.3,
+                    onComplete: () => {
+                        galleryGrid.innerHTML = ''; // 비우기
+                        window.scrollTo({top: 0, behavior: 'smooth'}); // 상단 이동
+                        
+                        const items = galleryData[currentYear][currentMonth];
+                        currentTitle.textContent = `${currentYear}. ${currentMonth} 기록`;
+                        countDisplay.textContent = `${items.length} ITEMS`;
+
+                        const fragment = document.createDocumentFragment();
+                        
+                        items.forEach(item => {
+                            const div = document.createElement('div');
+                            // [수정됨] 'opacity-0' 클래스를 제거하여 애니메이션 후 기본 투명도(1)를 유지하도록 변경
+                            div.className = 'masonry-item gs-item';
+                            
+                            // 카드 레이아웃 생성 (사진 내부에 텍스트와 설명 삽입)
+                            div.innerHTML = `
+                                <a href="#" class="block group cursor-pointer">
+                                    <div class="img-wrapper bg-[#111]">
+                                        <img src="${item.img}" alt="${item.title}" loading="lazy" class="w-full h-auto object-cover" width="600" height="${item.height}">
+                                        
+                                        <!-- 내부 그라데이션 및 텍스트 영역 -->
+                                        <div class="img-gradient"></div>
+                                        <div class="img-content">
+                                            <span class="text-blue-400 text-xs md:text-sm font-bold tracking-widest block mb-1 drop-shadow-md">${item.date}</span>
+                                            <h3 class="text-white text-lg md:text-xl font-bold tracking-tight drop-shadow-md">${item.title}</h3>
+                                            <!-- 마우스 오버 시 나타나는 설명 글 -->
+                                            <p class="img-desc text-gray-300 text-sm leading-relaxed drop-shadow-md line-clamp-3">
+                                                ${item.desc}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </a>
+                            `;
+                            fragment.appendChild(div);
+                        });
+                        
+                        galleryGrid.appendChild(fragment);
+
+                        // [수정됨] gsap.fromTo를 사용하여 시작 지점(opacity: 0)과 도착 지점(opacity: 1)을 명확히 설정
+                        gsap.fromTo('.gs-item', 
+                            { opacity: 0, y: 20 },
+                            {
+                                opacity: 1,
+                                y: 0,
+                                duration: 0.6,
+                                stagger: 0.04,
+                                ease: "power2.out",
+                                clearProps: "all" // 이제 안전하게 애니메이션 속성을 초기화할 수 있습니다.
+                            }
+                        );
+                    }
+                });
+            }
+
+            // 연도 버튼 클릭 이벤트
+            yearBtns.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    yearBtns.forEach(b => b.classList.remove('active'));
+                    e.target.classList.add('active');
+                    const selectedYear = e.target.getAttribute('data-year');
+                    
+                    // 선택된 연도에 맞게 월 필터 재렌더링 후 갤러리 업데이트
+                    renderMonthFilters(selectedYear);
+                    updateGallery();
+                });
+            });
+
+            // 초기 실행
+            renderMonthFilters(currentYear);
+            
+            // 약간 지연 후 첫 갤러리 렌더링 (깜빡임 방지)
+            setTimeout(() => {
+                updateGallery();
+            }, 100);
+
+        });
+    </script>
+</body>
+</html>
